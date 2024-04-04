@@ -16,6 +16,8 @@
     --typography-high: rgba(255, 255, 255, 0.87);
     --typography-medium: rgba(255, 255, 255, 0.6);
     --typography-disabled: rgba(255, 255, 255, 0.38);
+
+    box-sizing: border-box;
 }
 
 html {
