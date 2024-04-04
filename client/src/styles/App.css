@@ -1,0 +1,35 @@
+/* https://m2.material.io/design/color/dark-theme.html */
+
+* {
+    font-family: 'Montserrat', serif;
+    /* Surfaces */
+    --surface: #121212;
+    --elevation-200: #222222;
+    --elevation-400: #575757;
+    --elevation-600: #8b8b8b;
+
+    --primary-blue: #499bb6;
+    --primary-purple: #4964b6;
+    --primary-green: #49b69b;
+
+    /* Text */
+    --typography-high: rgba(255, 255, 255, 0.87);
+    --typography-medium: rgba(255, 255, 255, 0.6);
+    --typography-disabled: rgba(255, 255, 255, 0.38);
+}
+
+html {
+    height: 100%;
+    background-color: var(--surface);
+}
+
+body {
+    color: var(--typography-high);
+    font-size: 25px;
+}
+
+main {
+    padding: 10px;
+    max-width: 47.5%;
+    margin: 0 auto;
+}
