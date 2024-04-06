@@ -4,7 +4,9 @@
     font-family: 'Montserrat', serif;
     /* Surfaces */
     --surface: #121212;
-    --elevation-200: #222222;
+    --elevation-150: #202020;
+    --elevation-200: #282828;
+    --elevation-300: #3f3f3f;
     --elevation-400: #575757;
     --elevation-600: #8b8b8b;
 

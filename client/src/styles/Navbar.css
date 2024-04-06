@@ -3,12 +3,13 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .navbar a {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 
 .navbar .logo {
