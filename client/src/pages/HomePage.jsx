@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Post from '../components/Post';
 
 import WyvernImage from '../assets/wyvern.png';
@@ -7,8 +7,22 @@ import MashrutImage from '../assets/mashrut.png';
 import SunThroneImage from '../assets/sun-throne.png';
 
 function HomePage() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:4000/post").then(response => {
+            response.json().then(posts => {
+                setPosts(posts);
+            })
+        })
+    }, []);
+    
 	return (
 		<>
+            {posts.length > 0 && posts.map(post => (
+                <Post {...post}/>
+            ))}
+            {/* 
             <Post 
                 thumbnail={WyvernImage}
                 title="Wyverns"
@@ -45,6 +59,7 @@ function HomePage() {
                 vying for the throne. The King's sister, Sharan, away on her brother's business at the time of his death, now marches home to
                 quell the upheaval."
             />
+            */}
 		</>
 	)
 }

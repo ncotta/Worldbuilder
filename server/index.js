@@ -13,13 +13,14 @@ const User = require('./models/User');
 const Post = require('./models/Post');
 
 const salt = bcrypt.genSaltSync(10);
-const jwtSecret = '';
+const jwtSecret = '';  //! FIXME
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(cookieParser());
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
-mongoose.connect("");
+mongoose.connect(""); //! FIXME
 
 // Registration
 app.post("/register", async (req, res) => {
@@ -78,15 +79,32 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
     const newPath = path + "." + extension;
     fs.renameSync(path, newPath);
 
-    const { title, summary, content } = req.body;
-    const postDoc = await Post.create({
-        title,
-        summary,
-        content,
-        cover: newPath
+    const { token } = req.cookies;
+    jwt.verify(token, jwtSecret, {}, async (error, response) => {
+        if (error) throw error;
+        const { title, category, glimpse } = req.body;
+        const postDoc = await Post.create({
+            title,
+            category,
+            glimpse,
+            cover: newPath,
+            author: response.id
+        });
+
+        res.json(postDoc);
     });
 
-    res.json(postDoc);
+    
 });
+
+// Get posts
+app.get("/post", async (req, res) => {
+    res.json(
+        await Post.find()
+            .populate("author", ["username"])
+            .sort({createdAt: -1})
+            .limit(10)
+    );
+})
 
 app.listen(4000);
