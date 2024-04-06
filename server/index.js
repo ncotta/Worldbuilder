@@ -1,20 +1,25 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const multer = require('multer');
+const fs = require('fs');
+const uploadMiddleware = multer({ dest: 'uploads/' })
 const app = express();
 
+const User = require('./models/User');
+const Post = require('./models/Post');
+
 const salt = bcrypt.genSaltSync(10);
-const jwtSecret = ''; 
+const jwtSecret = '';
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect("mongodb+srv://nikcotta:MLx5yRYzciBsRAe@cluster0.hhjn4rl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("");
 
 // Registration
 app.post("/register", async (req, res) => {
@@ -64,5 +69,24 @@ app.get("/profile", (req, res) => {
         res.json(response);
     });
 })
+
+// Create post
+app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
+    const { originalname, path } = req.file;
+    const parts = originalname.split('.');
+    const extension = parts[parts.length - 1];
+    const newPath = path + "." + extension;
+    fs.renameSync(path, newPath);
+
+    const { title, summary, content } = req.body;
+    const postDoc = await Post.create({
+        title,
+        summary,
+        content,
+        cover: newPath
+    });
+
+    res.json(postDoc);
+});
 
 app.listen(4000);

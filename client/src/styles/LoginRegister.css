@@ -2,12 +2,14 @@ form {
     margin: 0 auto;
 }
 
-form.login, form.register {
+form.login, 
+form.register {
     max-width: 50%;
     justify-content: center;
 }
 
-input {
+form.login input,
+form.register input {
     display: flex;
     flex-direction: column;
     margin-bottom: 5px;
@@ -29,6 +31,6 @@ button {
     padding: 5px 0;
 }
 
-form h1 {
+form.login h1, form.register {
     text-align: center;
 }
