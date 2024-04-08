@@ -13,14 +13,14 @@ const User = require('./models/User');
 const Post = require('./models/Post');
 
 const salt = bcrypt.genSaltSync(10);
-const jwtSecret = '';  //! FIXME
+const jwtSecret = process.env.JWT_SECRET;
 
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-mongoose.connect(""); //! FIXME
+mongoose.connect(process.env.MONGODB_URL);
 
 // Registration
 app.post("/register", async (req, res) => {
