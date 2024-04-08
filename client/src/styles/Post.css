@@ -5,7 +5,7 @@
     padding: 1rem;
     background-color: var(--elevation-150);
     border-radius: 5px;
-    transition: background-color 0.8s ease;
+    transition: background-color 0.7s ease;
 }
 
 .post:hover {
@@ -21,22 +21,33 @@
     background-position: center center;
 }
 
-.image {
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post .image {
     max-width: 225px;
     max-height: 225px;
 }
 
-.image img {
+.post .image img {
     max-height: 225px;
 }
 
-.text {
+.post .text {
     max-width: 75%;
     height: auto;
     overflow: hidden;
 }
 
-.glimpse {
+.post .glimpse {
+    overflow: hidden;
+    max-height: 9rem;
+    text-overflow: ellipsis;
+}
+
+.post .glimpse p {
     margin-top: 0;
     margin-bottom: 0;
     color: var(--typography-medium);
@@ -44,17 +55,38 @@
     font-size: 1.4rem;
 }
 
-.info {
+.post .info {
     margin: 0.5rem 0;
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
-.info .category,
-.info time {
+.post .info .category,
+.post .info time {
     margin: 0;
     color: var(--typography-disabled);
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;    
+}
+
+@media (max-width: 768px) {
+    .post {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .post .image,
+    .post .text {
+        margin: 0;
+        text-align: center;
+        min-width: 100%;
+    }
+
+    .post .text .info {
+        margin: 0.5rem auto;
+        justify-content: center;
+        gap: 0;
+    }
 }

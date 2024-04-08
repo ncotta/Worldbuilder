@@ -8,16 +8,21 @@
     --elevation-200: #282828;
     --elevation-300: #3f3f3f;
     --elevation-400: #575757;
+    --elevation-500: #717171;
     --elevation-600: #8b8b8b;
 
-    --primary-blue: #499bb6;
-    --primary-purple: #4964b6;
-    --primary-green: #49b69b;
+    --primary-olive: #2c4c3b;
+    --primary-green: #306844;
+    --primary-dark-green: #182c25;
+    --primary-grey-green: #455b55;
+    --primary-blue-green: #1e453e;
 
     /* Text */
+    --typography-cream: #ffffed;
     --typography-high: rgba(255, 255, 255, 0.87);
     --typography-medium: rgba(255, 255, 255, 0.6);
     --typography-disabled: rgba(255, 255, 255, 0.38);
+    
 
     box-sizing: border-box;
 }
@@ -32,8 +37,31 @@ body {
     font-size: 25px;
 }
 
+#root {
+    display: flex;
+    justify-content: center;
+}
+
 main {
     padding: 10px;
-    max-width: 47.5%;
-    margin: 0 auto;
+    width: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header {
+    min-width: 100%;
+}
+
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1260px) {
+    main {
+        max-width: 80%;
+    }
 }

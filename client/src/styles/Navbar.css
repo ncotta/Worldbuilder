@@ -14,10 +14,36 @@
 
 .navbar .logo {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .navbar nav {
     display: flex;
-    gap: 15px;
+    align-items: flex-end;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+.navbar nav Link,
+.navbar nav a,
+.navbar .logo {
+    transition: color 0.5s ease;
+}
+
+.navbar nav Link:hover,
+.navbar nav a:hover,
+.navbar .logo:hover {
+    transition: color 0.5s ease;
+    color: var(--typography-medium);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .navbar nav,
+    .navbar .logo {
+        margin: 0 auto;
+    }
 }

@@ -97,14 +97,59 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
     
 });
 
+// Edit post
+app.put("/post", uploadMiddleware.single("file"), async (req, res) => {
+    let newPath = null;
+    
+    if (req.file) {
+        const { originalname, path } = req.file;
+        const parts = originalname.split('.');
+        const extension = parts[parts.length - 1];
+        newPath = path + "." + extension;
+        fs.renameSync(path, newPath);
+    }
+
+    const { token } = req.cookies;
+    jwt.verify(token, jwtSecret, {}, async (error, response) => {
+        if (error) throw error;
+
+        const { id, title, category, glimpse } = req.body;
+        const postDoc = await Post.findById(id);
+        const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(response.id);
+        if (!isAuthor) {
+            return res.status(400).json("you are not the author!");
+        }
+
+        await Post.updateOne({
+            _id: id
+        }, { 
+            title, 
+            category, 
+            glimpse,
+            cover: newPath ? newPath : postDoc.cover
+        });
+
+        res.json(postDoc);
+    });
+})
+
 // Get posts
 app.get("/post", async (req, res) => {
-    res.json(
-        await Post.find()
-            .populate("author", ["username"])
-            .sort({createdAt: -1})
-            .limit(10)
-    );
+    const postDoc = await Post.find()
+                        .populate("author", ["username"])
+                        .sort({createdAt: -1})
+                        .limit(10)
+
+    res.json(postDoc);
+})
+
+// Get specific post
+app.get("/post/:id", async (req, res) => {
+    const { id } = req.params;
+    const postDoc = await Post.findById(id)
+                        .populate("author", ["username"])
+
+    res.json(postDoc);
 })
 
 app.listen(4000);

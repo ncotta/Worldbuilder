@@ -1,0 +1,75 @@
+.post-page .image {
+    display: flex;
+    overflow: hidden;
+    min-height: 13rem;
+    position: relative;
+    z-index: -2;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-page .image img {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.post-page .image .overlay-box {
+    background-color: rgba(30, 30, 30, 0.75);
+    border-radius: 5px;
+}
+
+.post-page .image h1 {
+    margin: 0 0.5rem;
+    color: #9f9f9f;
+    text-align: center;
+}
+
+.post-page .info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    color: var(--typography-medium);
+    margin: 0.5rem 0;
+}
+
+.post-page .glimpse {
+    line-height: 2rem;
+    color: var(--typography-high);
+    margin-top: 3rem;
+    position: relative;
+}
+
+.post-page .glimpse::before {
+    content: "";
+    border-top: 1px solid var(--typography-high);
+    position: absolute;
+    left: 25%;
+    top: -5%;
+    height: 1px;
+    width: 50%;
+}
+
+.post-page .edit-row {
+    display: flex;
+    justify-content: center;
+}
+
+.post-page .edit-button {
+    background-color: var(--elevation-400);
+    color: var(--typography-high);
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .post-page {
+        text-align: center;
+    }
+
+    .post-page .glimpse::before {
+        top: -1%;
+    }
+}

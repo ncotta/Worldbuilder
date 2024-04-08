@@ -12,23 +12,49 @@ form.login input,
 form.register input {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5px;
+    margin-bottom: 0.8rem;
     width: 100%;
-    padding: 5px 7px;
-    border: 1px solid #ddd;
+    padding: 7px 10px;
+    border: 1px solid var(--elevation-300);
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--elevation-200);
+    font-size: 1.3rem;
+    color: var(--typography-cream);
+    transition: background-color 0.5s ease;
 }
 
-button {
+form.login input:hover,
+form.register input:hover {
+    transition: background-color 0.5s ease;
+    background-color: var(--elevation-300);
+}
+
+form.login input:focus,
+form.register input:focus {
+    background-color: var(--elevation-300);
+    outline: var(--primary-blue-green) solid 4px;
+}
+
+form.login button,
+form.register button {
     width: 100%;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    background-color: #555;
+    background-color: var(--primary-blue-green);
     border: 0;
-    color: #fff;
+    color: var(--typography-cream);
     border-radius: 5px;
-    padding: 5px 0;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+form.login button:hover,
+form.register button:hover {
+    transition: background-color 0.5s ease;
+    background-color: var(--primary-grey-green);
 }
 
 form.login h1, form.register {

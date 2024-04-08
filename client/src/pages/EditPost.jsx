@@ -1,36 +1,51 @@
-import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useState, useEffect }  from 'react';
+import { Navigate, useParams } from 'react-router-dom';    
 import Editor from '../components/Editor';
-import '../styles/CreatePost.css';
 
-function CreatePost() {
-    const [title, setTitle] = useState("");
+
+function EditPost() {
+    const { id } = useParams();
+	const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [glimpse, setGlimpse] = useState("");
     const [files, setFiles] = useState("");
     const [redirect, setRedirect] = useState(false);
 
-    const createNewPost = async (event) => {
+	useEffect(() => {
+        fetch(`http://localhost:4000/post/${id}`)
+            .then(response => {
+                response.json().then(postInfo => {
+                    setTitle(postInfo.title);
+                    setGlimpse(postInfo.glimpse);
+                    setCategory(postInfo.category);
+                })
+            })
+    }, []);
+
+    const updatePost = async (event) => {
+        event.preventDefault();
         const data = new FormData();
         data.set("title", title);
         data.set("category", category);
         data.set("glimpse", glimpse);
-        data.set("file", files[0]);
+        data.set("id", id);
+        if (files?.[0]) {
+            data.set("file", files?.[0]);
+        }
 
-        event.preventDefault();
         const response = await fetch("http://localhost:4000/post", {
-            method: "POST",
+            method: "PUT",
             body: data,
             credentials: "include"
         });
 
         if (response.ok) setRedirect(true);
-    }
+    };
 
-    if (redirect) return <Navigate to="/" />
+    if (redirect) return <Navigate to={`/post/${id}`} />
 
 	return (
-		<form className="create-form" onSubmit={createNewPost}>
+		<form className="create-form" onSubmit={updatePost}>
 			<input 
                 type="title" 
                 placeholder={"Title"} 
@@ -51,9 +66,9 @@ function CreatePost() {
                 value={glimpse}
                 onChange={setGlimpse}
             />
-			<button className="create-button">Create post</button>
+			<button className="create-button">Update post</button>
 		</form>
   )
 }
 
-export default CreatePost;
+export default EditPost
