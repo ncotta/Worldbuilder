@@ -20,8 +20,13 @@
 .navbar nav {
     display: flex;
     align-items: flex-end;
-    gap: 2rem;
+    gap: 3rem;
     font-size: 2rem;
+}
+
+.navbar .welcome {
+    font-weight: 100;
+    margin: 0;
 }
 
 .navbar nav Link,
@@ -38,12 +43,30 @@
 }
 
 @media (max-width: 768px) {
-    .navbar {
+    .navbar,
+    .navbar nav {
         flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar .logo {
+        font-size: 2rem;
+    }
+
+    .navbar nav .welcome {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .navbar nav a,
+    .navbar nav Link,
+    .navbar nav .welcome {
+        font-size: 1.5rem;
     }
 
     .navbar nav,
     .navbar .logo {
         margin: 0 auto;
+        gap: 0.5rem;
     }
 }

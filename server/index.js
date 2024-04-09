@@ -31,7 +31,8 @@ app.post("/register", async (req, res) => {
     try { 
         const userDoc = await User.create({ 
             username, 
-            password: bcrypt.hashSync(password, salt)
+            password: bcrypt.hashSync(password, salt),
+            role: 1
         });
         res.json(userDoc);
     } catch(e) {
@@ -46,11 +47,12 @@ app.post("/login", async (req, res) => {
     const passOk = bcrypt.compareSync(password, userDoc.password);
     if (passOk) {
         // logged in
-        jwt.sign({ username, id: userDoc._id }, jwtSecret, {}, (error, token) => {
+        jwt.sign({ username, id: userDoc._id, role: userDoc.role }, jwtSecret, {}, (error, token) => {
             if (error) throw error;
             res.cookie("token", token).json({
                 id: userDoc._id,
-                username
+                username,
+                role: userDoc.role
             });
         });
     } else {
@@ -85,6 +87,13 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
     jwt.verify(token, jwtSecret, {}, async (error, response) => {
         if (error) throw error;
         const { title, category, glimpse } = req.body;
+
+        const userDoc = await User.findById(response.id);
+        const isAdmin = JSON.stringify(userDoc.role) === "0";
+        if (!isAdmin) {
+            return res.status(401).json("You do not have permissions!");
+        }
+
         const postDoc = await Post.create({
             title,
             category,
@@ -117,9 +126,15 @@ app.put("/post", uploadMiddleware.single("file"), async (req, res) => {
 
         const { id, title, category, glimpse } = req.body;
         const postDoc = await Post.findById(id);
+        const userDoc = await User.findById(response.id);
         const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(response.id);
+        const isAdmin = JSON.stringify(userDoc.role) === "0";
         if (!isAuthor) {
-            return res.status(400).json("you are not the author!");
+            return res.status(400).json("You are not the author!");
+        }
+
+        if (!isAdmin) {
+            return res.status(401).json("You do not have permissions!");
         }
 
         await Post.updateOne({

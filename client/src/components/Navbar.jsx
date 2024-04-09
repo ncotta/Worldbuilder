@@ -26,15 +26,23 @@ function Navbar() {
     }
 
     const username = userInfo?.username;
+    const role = userInfo?.role;
 
 	return (
 		<header>
             <div className="navbar">
                 <Link to="/" className="logo">Worldbuilder</Link>
                 <nav>
-                    {username && (
+                    {username && role === 0 && (
                         <>
+                            <h4 className="welcome">Welcome, {username}</h4>
                             <Link to="/create">Create</Link>
+                            <a onClick={logout}>Logout</a>
+                        </>
+                    )}
+                    {username && role === 1 && (
+                        <>
+                            <h4 className="welcome">Welcome, {username}</h4>
                             <a onClick={logout}>Logout</a>
                         </>
                     )}

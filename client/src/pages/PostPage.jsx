@@ -23,7 +23,7 @@ function PostPage() {
 
 	return (
 		<div className="post-page">
-            { userInfo.id === postInfo.author._id && (
+            { userInfo?.id === postInfo.author._id && (
                 <div className="edit-row">
                     <Link to={`/edit/${postInfo._id}`} className="edit-button">Edit this post</Link>
                 </div>

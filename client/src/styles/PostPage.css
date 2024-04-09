@@ -69,7 +69,16 @@
         text-align: center;
     }
 
+    .post-page .title {
+        font-size: 2rem;
+    }
+
+    .post-page .glimpse {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+
     .post-page .glimpse::before {
-        top: -1%;
+        top: -10%;
     }
 }

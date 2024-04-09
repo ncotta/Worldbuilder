@@ -77,6 +77,10 @@ a {
         justify-content: center;
     }
 
+    .post .title {
+        font-size: 1.5rem;
+    }
+
     .post .image,
     .post .text {
         margin: 0;
@@ -87,6 +91,12 @@ a {
     .post .text .info {
         margin: 0.5rem auto;
         justify-content: center;
-        gap: 0;
+        gap: 0.2rem;
+        flex-direction: column;
+    }
+
+    .post .glimpse p {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
     }
 }
