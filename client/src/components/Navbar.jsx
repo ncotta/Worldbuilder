@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
 import { UserContext } from './UserContext';
@@ -7,7 +7,7 @@ function Navbar() {
     const { setUserInfo, userInfo } = useContext(UserContext);
 
     useEffect(() => {
-        fetch("http://localhost:4000/profile", {
+        fetch(`${process.env.SERVER_URL}/profile`, {
             credentials: "include"
         }).then(response => {
             response.json().then(userInfo => {
@@ -17,7 +17,7 @@ function Navbar() {
     }, []);
 
     const logout = () => {
-        fetch("http://localhost:4000/logout", {
+        fetch(`${process.env.SERVER_URL}/logout`, {
             credentials: "include",
             method: "POST"
         });

@@ -15,7 +15,7 @@ function RegisterPage() {
 
     const registerUser = async (event) => {
         event.preventDefault();
-        const response = await fetch("http://localhost:4000/register", {
+        const response = await fetch(`${process.env.SERVER_URL}/register`, {
             method: "POST",
             headers: { "Content-Type" : "application/json" },
             body: JSON.stringify({ username, password })
