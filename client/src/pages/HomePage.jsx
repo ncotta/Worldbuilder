@@ -5,7 +5,7 @@ function HomePage() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(`${process.env.SERVER_URL}/post`).then(response => {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/post`).then(response => {
             response.json().then(posts => {
                 setPosts(posts);
             })

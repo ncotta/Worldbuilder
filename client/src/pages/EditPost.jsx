@@ -12,7 +12,7 @@ function EditPost() {
     const [redirect, setRedirect] = useState(false);
 
 	useEffect(() => {
-        fetch(`${process.env.SERVER_URL}/post/${id}`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/post/${id}`)
             .then(response => {
                 response.json().then(postInfo => {
                     setTitle(postInfo.title);
@@ -33,7 +33,7 @@ function EditPost() {
             data.set("file", files?.[0]);
         }
 
-        const response = await fetch(`${process.env.SERVER_URL}/post`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/post`, {
             method: "PUT",
             body: data,
             credentials: "include"

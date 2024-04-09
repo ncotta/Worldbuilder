@@ -19,7 +19,7 @@ function LoginPage() {
 
     const login = async (event) => {
         event.preventDefault();
-        const response = await fetch(`${process.env.SERVER_URL}/login`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
             method: "POST",
             body: JSON.stringify({ username, password }),
             headers: {  "Content-Type": "application/json" },

@@ -19,14 +19,14 @@ function Post({ _id, cover, title, category, createdAt, glimpse }) {
         <Link to={`/post/${_id}`}>
             <div className="post" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <div className="image">
-                    <img src={`${process.env.SERVER_URL}/${cover}`} alt="" />	
+                    <img src={`${process.env.REACT_APP_SERVER_URL}/${cover}`} alt="" />	
                 </div>
                 <div className="text">
                     <h2 
                         className="title"
                         style={{ 
                             color: isMouseOver ? "transparent" : "#FFFFFF",
-                            backgroundImage: isMouseOver ? `url(${process.env.SERVER_URL}/${cover})`: "",
+                            backgroundImage: isMouseOver ? `url(${process.env.REACT_APP_SERVER_URL}/${cover})`: "",
                             transition: "color 1.5s ease"
                         }}
                     >{title}</h2>

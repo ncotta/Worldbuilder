@@ -7,7 +7,7 @@ function Navbar() {
     const { setUserInfo, userInfo } = useContext(UserContext);
 
     useEffect(() => {
-        fetch(`${process.env.SERVER_URL}/profile`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/profile`, {
             credentials: "include"
         }).then(response => {
             response.json().then(userInfo => {
@@ -17,7 +17,7 @@ function Navbar() {
     }, []);
 
     const logout = () => {
-        fetch(`${process.env.SERVER_URL}/logout`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/logout`, {
             credentials: "include",
             method: "POST"
         });
