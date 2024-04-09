@@ -19,7 +19,7 @@ function LoginPage() {
 
     const login = async (event) => {
         event.preventDefault();
-        const response = await fetch(`https://worldbuilder.onrender.com/login`, {
+        const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/login`, {
             method: "POST",
             body: JSON.stringify({ username, password }),
             headers: {  "Content-Type": "application/json" },

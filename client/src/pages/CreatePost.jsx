@@ -18,7 +18,7 @@ function CreatePost() {
         data.set("file", files[0]);
 
         event.preventDefault();
-        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/post`, {
+        const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`, {
             method: "POST",
             body: data,
             credentials: "include"

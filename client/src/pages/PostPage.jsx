@@ -11,7 +11,7 @@ function PostPage() {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/post/${id}`)
+        fetch(`${import.meta.env.VITE_SERVER_URL}/post/${id}`)
             .then(response => {
                 response.json().then(postInfo => {
                     setPostInfo(postInfo);
@@ -29,7 +29,7 @@ function PostPage() {
                 </div>
             )}
             <div className="image">
-                <img src={`${process.env.REACT_APP_SERVER_URL}/${postInfo.cover}`} alt="" />
+                <img src={`${import.meta.env.VITE_SERVER_URL}/${postInfo.cover}`} alt="" />
                 <div className="overlay-box">
                     <h1 className="title">{postInfo.title}</h1>
                 </div>
