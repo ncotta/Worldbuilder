@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
+import { Snackbar } from '@mui/material';
 import '../styles/LoginRegister.css';
 import { UserContext } from '../components/UserContext';
 
@@ -7,6 +8,7 @@ function LoginPage() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
     const [redirect, setRedirect] = useState(false);
+    const [open, setOpen] = useState(false);
     const { setUserInfo } = useContext(UserContext);
 
     const changeUsername = (event) => {
@@ -32,7 +34,7 @@ function LoginPage() {
                 setRedirect(true);
             })
         } else {
-            alert("Wrong Credentials");
+            setOpen(true);
         }
     }
 
@@ -56,6 +58,12 @@ function LoginPage() {
                 onChange={changePassword}
             />
 			<button>Login</button>
+            <Snackbar
+                message="Incorrect username or password, please try again."
+                autoHideDuration={4000}
+                open={open}
+                onClose={() => { setOpen(false); }}
+            />
 		</form>
 	)
 }

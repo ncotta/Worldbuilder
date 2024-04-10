@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { Snackbar } from '@mui/material';
 import '../styles/LoginRegister.css';
 
 function RegisterPage() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+    const [redirect, setRedirect] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [message, setMessage] = useState("");
 
     const changeUsername = (event) => {
         setUsername(event.target.value);
@@ -22,11 +27,16 @@ function RegisterPage() {
         });
         
         if (response.status === 200) {
-            alert("Success");
+            setMessage("Account created successfully");
+            setRedirect(true);
         } else {
-            alert("Registration failed");  
+            setMessage("Username already exists"); 
         }
+
+        setOpen(true);  // TODO: snackbar doesnt show when login successful
     }
+
+    if (redirect) return <Navigate to={"/login"} />
 
 	return (
 		<form className="register" onSubmit={registerUser}>
@@ -44,6 +54,12 @@ function RegisterPage() {
                 onChange={changePassword}
             />
 			<button>Register</button>
+            <Snackbar
+                message={message}
+                autoHideDuration={4000}
+                open={open}
+                onClose={() => { setOpen(false); }}
+            />
 		</form>
 	)
 }

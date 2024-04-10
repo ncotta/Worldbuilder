@@ -62,6 +62,6 @@ header {
 
 @media (max-width: 1260px) {
     main {
-        max-width: 90%;
+        width: 80%;
     }
 }
