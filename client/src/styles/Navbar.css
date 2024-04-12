@@ -1,9 +1,12 @@
+header {
+    padding: 0.5rem;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 2rem;
 }
 
 .navbar a {

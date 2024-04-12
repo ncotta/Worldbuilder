@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import Post from '../components/Post';
+import SideNav from '../components/SideNav';
+import '../styles/HomePage.css';
 
 function HomePage() {
     const [posts, setPosts] = useState([]);
@@ -13,11 +15,13 @@ function HomePage() {
     }, []);
     
 	return (
-		<>
+		<div className="homepage-container">
+            <SideNav />
+            <h3 className="filter">Featured</h3>
             {posts.length > 0 && posts.map(post => (
                 <Post {...post}/>
             ))}
-		</>
+		</div>
 	)
 }
 
