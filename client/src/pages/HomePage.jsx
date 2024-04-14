@@ -28,7 +28,7 @@ function HomePage() {
             {loading && (
                 <CircularProgress size="4rem" sx={{ color: "var(--typography-high)" }} />
             )}
-            {posts.length > 0 && posts.map(post => (
+            {!loading && posts.length > 0 && posts.map(post => (
                 <Post {...post}/>
             ))}
 		</div>

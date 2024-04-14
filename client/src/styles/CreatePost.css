@@ -21,7 +21,8 @@
     background-color: var(--elevation-300);
 }
 
-.create-form input {
+.create-form input, 
+.create-form select {
     display: flex;
     flex-direction: column;
     margin-bottom: 0.75rem;
@@ -34,12 +35,18 @@
     color: var(--elevation-200);
 }
 
+.create-form select {
+    color: var(--elevation-600);
+    cursor: pointer;
+}
+
 .create-form input:focus {
     outline: none;
 }
 
 .create-form input[type=file] {
-    color: var(--elevation-200);
+    color: var(--elevation-600);
+    cursor: pointer;
 }
 
 .create-form input[type=file]::file-selector-button {

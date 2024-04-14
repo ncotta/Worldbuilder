@@ -46,7 +46,7 @@
     border-top: 1px solid var(--typography-high);
     position: absolute;
     left: 25%;
-    top: -5%;
+    top: -15%;
     height: 1px;
     width: 50%;
 }
@@ -79,6 +79,6 @@
     }
 
     .post-page .glimpse::before {
-        top: -10%;
+        top: -8%;
     }
 }

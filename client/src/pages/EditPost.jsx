@@ -52,12 +52,14 @@ function EditPost() {
                 value={title} 
                 onChange={event => setTitle(event.target.value)} 
             />
-			<input 
-                type="category" 
-                placeholder={"Category"} 
-                value={category}
-                onChange={event => setCategory(event.target.value)}
-            />
+			<select value={category} onChange={event => setCategory(event.target.value)} >
+                <option value="" disabled hidden>Category</option>
+                <option value="Civilization">Civilization</option>
+                <option value="Beast">Beast</option>
+                <option value="Magic">Magic</option>
+                <option value="Divinity">Divinity</option>
+                <option value="People">People</option>
+            </select>
 			<input 
                 type="file"
                 onChange={event => setFiles(event.target.files)} 

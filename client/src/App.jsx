@@ -27,7 +27,7 @@ function App() {
 							<CategoryPage 
 								category="Civilization" 
 								title="Civilizations" 
-								about="Civ VI baby" 
+								about="A country for each celestial body, save for the magnificent Sun, who rules over three" 
 							/>
 						} 
 					/>
@@ -37,7 +37,7 @@ function App() {
 							<CategoryPage 
 								category="Beast" 
 								title="Beasts"
-								about="Beasties"
+								about="Varied and plentiful"
 							/>
 						} 
 					/>
@@ -47,7 +47,7 @@ function App() {
 							<CategoryPage 
 								category="Magic" 
 								title="Magic"
-								about="Magics of the utmost kind"
+								about="Four Primary Elements form the foundation of all things, and a Fifth which exists only to bind"
 							/>
 						} 
 					/>
@@ -65,9 +65,9 @@ function App() {
 						path="/characters" 
 						element={
 							<CategoryPage 
-								category="Character" 
-								title="Characters"
-								about="Chars"
+								category="People" 
+								title="People"
+								about="Important characters around which the story revolves"
 							/>
 						} 
 					/>

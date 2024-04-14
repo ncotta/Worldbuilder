@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import '../styles/Editor.css';
 
 const modules = {
     toolbar: [
@@ -13,7 +14,7 @@ const modules = {
             { indent: '+1' }
         ],
         ['link', 'image'],
-        ['clean']
+        ['clean'],
     ]
 };
 

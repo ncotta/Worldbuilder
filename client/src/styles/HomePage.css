@@ -12,3 +12,10 @@
     padding-left: 0.5rem;
     margin: 1rem 0;
 }
+
+@media (max-width: 768px) {
+    .filter {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
