@@ -12,15 +12,20 @@ function EditPost() {
     const [redirect, setRedirect] = useState(false);
 
 	useEffect(() => {
-        fetch(`${import.meta.env.VITE_SERVER_URL}/post/${id}`)
-            .then(response => {
-                response.json().then(postInfo => {
-                    setTitle(postInfo.title);
-                    setGlimpse(postInfo.glimpse);
-                    setCategory(postInfo.category);
-                })
-            })
-    }, []);
+        const fetchPost = async () => {
+            try {
+                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post/${id}`);
+                const postInfo = await response.json();
+                setTitle(postInfo.title);
+                setGlimpse(postInfo.glimpse);
+                setCategory(postInfo.category);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchPost();
+    }, [id]);
 
     const updatePost = async (event) => {
         event.preventDefault();
