@@ -6,7 +6,6 @@ function SideNav() {
 		<div className="side-nav">
             <nav>
                 <Link to="/civilizations" className="side-nav-category">Civilizations</Link> 
-                <Link to="/beasts" className="side-nav-category">Beasts</Link>
                 <Link to="/magic" className="side-nav-category">Magic</Link>
                 <Link to="/jinn" className="side-nav-category">Jinn</Link>
                 <Link to="/characters" className="side-nav-category">People</Link>

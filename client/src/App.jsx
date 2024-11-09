@@ -8,8 +8,10 @@ import CreatePost from './pages/CreatePost';
 import PostPage from './pages/PostPage';
 import EditPost from './pages/EditPost';
 import CategoryPage from './pages/CategoryPage';
+import MagicPage from './pages/MagicPage';
 import { UserContextProvider } from './components/UserContext';
 import { Route, Routes } from 'react-router-dom';
+
 
 
 function App() {
@@ -32,23 +34,9 @@ function App() {
 						} 
 					/>
 					<Route 
-						path="/beasts" 
-						element={
-							<CategoryPage 
-								category="Beast" 
-								title="Beasts"
-								about="Varied and plentiful"
-							/>
-						} 
-					/>
-					<Route 
 						path="/magic" 
 						element={
-							<CategoryPage 
-								category="Magic" 
-								title="Magic"
-								about="Four Primary Elements form the foundation of all things, and a Fifth which exists only to bind"
-							/>
+							<MagicPage />
 						} 
 					/>
 					<Route 
