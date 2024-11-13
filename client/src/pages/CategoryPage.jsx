@@ -10,7 +10,8 @@ function CategoryPage({ category, title, about }) {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            setLoading(true); // Start loading before fetching
+            setLoading(true);
+
             try {
                 const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`);
                 const posts = await response.json();
@@ -38,7 +39,7 @@ function CategoryPage({ category, title, about }) {
                                     post.category === category
                                 ))
                                 .map(post => (
-                                    <Post {...post}/>
+                                    <Post key={post.id} {...post}/>
                                 ))
             }
 		</div>

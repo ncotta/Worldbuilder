@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import Parser from 'html-react-parser';
@@ -17,6 +17,7 @@ function PostPage() {
                     setPostInfo(postInfo);
                 });
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (!postInfo) return "Loading...";
