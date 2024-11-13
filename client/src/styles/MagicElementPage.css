@@ -1,0 +1,18 @@
+.magic-element-container {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.magic-element-container > .title,
+.magic-element-container > .about {
+    margin-bottom: 0;
+}
+
+.magic-element-container > .about,
+.magic-element-container > .about2 {
+    margin-top: 0.5rem;
+    color: var(--typography-medium);
+}

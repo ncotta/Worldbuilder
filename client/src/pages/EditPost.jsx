@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import { useState, useEffect }  from 'react';
 import { Navigate, useParams } from 'react-router-dom';    
 import Editor from '../components/Editor';
 
@@ -7,6 +7,7 @@ function EditPost() {
     const { id } = useParams();
 	const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
+    const [subcategory, setSubcategory] = useState("");
     const [glimpse, setGlimpse] = useState("");
     const [files, setFiles] = useState("");
     const [redirect, setRedirect] = useState(false);
@@ -32,6 +33,12 @@ function EditPost() {
         const data = new FormData();
         data.set("title", title);
         data.set("category", category);
+        if (subcategory) {
+            data.set("category", category + " " + subcategory);
+        } else {
+            data.set("category", category);
+        }   
+        
         data.set("glimpse", glimpse);
         data.set("id", id);
         if (files?.[0]) {
@@ -60,11 +67,21 @@ function EditPost() {
 			<select value={category} onChange={event => setCategory(event.target.value)} >
                 <option value="" disabled hidden>Category</option>
                 <option value="Civilization">Civilization</option>
-                <option value="Beast">Beast</option>
                 <option value="Magic">Magic</option>
                 <option value="Divinity">Divinity</option>
                 <option value="People">People</option>
             </select>
+
+            {category === "Magic" && (
+                <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
+                    <option value="" disabled hidden>Subcategory</option>
+                    <option value="Fire Magic">Fire</option>
+                    <option value="Water Magic">Water</option>
+                    <option value="Earth Magic">Earth</option>
+                    <option value="Air Magic">Air</option>
+                </select>
+            )}
+
 			<input 
                 type="file"
                 onChange={event => setFiles(event.target.files)} 

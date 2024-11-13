@@ -4,6 +4,7 @@ import EarthMagic from '../assets/earth-magic.png';
 import WindMagic from '../assets/wind-magic.png';
 import SideNav from '../components/SideNav';
 import '../styles/MagicPage.css';
+import { Link } from 'react-router-dom';
 
 function MagicPage() {
 	return (
@@ -15,16 +16,28 @@ function MagicPage() {
             </div>
             <div className="magic-square">
                 <div className="quarter top-left">
-                    <img src={FireMagic}/> 
+                    <Link to="fire" className="magic-link">
+                        <img src={FireMagic}/> 
+                        <div className="magic-text">Fire</div>
+                    </Link>
                 </div>
                 <div className="quarter top-right">
-                    <img src={WaterMagic}/>
+                    <Link to="water" className="magic-link">
+                        <img src={WaterMagic}/>
+                        <div className="magic-text">Water</div>
+                    </Link>
                 </div>
                 <div className="quarter bottom-left">
-                    <img src={WindMagic}/>
+                    <Link to="wind" className="magic-link">
+                        <img src={WindMagic}/>
+                        <div className="magic-text">Wind</div>
+                    </Link>
                 </div>
                 <div className="quarter bottom-right">
-                    <img src={EarthMagic}/>
+                    <Link to="earth" className="magic-link">
+                        <img src={EarthMagic}/>
+                        <div className="magic-text">Earth</div>
+                    </Link>
                 </div>
             </div>
         </div>

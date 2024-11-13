@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Editor from '../components/Editor';
 import '../styles/CreatePost.css';
@@ -6,6 +6,7 @@ import '../styles/CreatePost.css';
 function CreatePost() {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
+    const [subcategory, setSubcategory] = useState("");
     const [glimpse, setGlimpse] = useState("");
     const [files, setFiles] = useState("");
     const [redirect, setRedirect] = useState(false);
@@ -13,9 +14,16 @@ function CreatePost() {
     const createNewPost = async (event) => {
         const data = new FormData();
         data.set("title", title);
-        data.set("category", category);
+        if (subcategory) {
+            data.set("category", category + " " + subcategory);
+        } else {
+            data.set("category", category);
+        }   
+            
         data.set("glimpse", glimpse);
         data.set("file", files[0]);
+
+        
 
         event.preventDefault();
         const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`, {
@@ -40,11 +48,21 @@ function CreatePost() {
             <select value={category} onChange={event => setCategory(event.target.value)} >
                 <option value="" disabled hidden>Category</option>
                 <option value="Civilization">Civilization</option>
-                <option value="Beast">Beast</option>
                 <option value="Magic">Magic</option>
                 <option value="Divinity">Divinity</option>
                 <option value="People">People</option>
             </select>
+
+            {category === "Magic" && (
+                <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
+                    <option value="" disabled hidden>Subcategory</option>
+                    <option value="Fire Magic">Fire</option>
+                    <option value="Water Magic">Water</option>
+                    <option value="Earth Magic">Earth</option>
+                    <option value="Air Magic">Air</option>
+                </select>
+            )}
+
 			<input 
                 type="file"
                 onChange={event => setFiles(event.target.files)} 
@@ -55,7 +73,7 @@ function CreatePost() {
             />
 			<button className="create-button">Create post</button>
 		</form>
-  )
+    )
 }
 
 export default CreatePost;

@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles/App.css';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
@@ -9,9 +8,9 @@ import PostPage from './pages/PostPage';
 import EditPost from './pages/EditPost';
 import CategoryPage from './pages/CategoryPage';
 import MagicPage from './pages/MagicPage';
+import MagicElementPage from './pages/MagicElementPage';
 import { UserContextProvider } from './components/UserContext';
 import { Route, Routes } from 'react-router-dom';
-
 
 
 function App() {
@@ -35,9 +34,11 @@ function App() {
 					/>
 					<Route 
 						path="/magic" 
-						element={
-							<MagicPage />
-						} 
+						element={ <MagicPage /> } 
+					/>
+					<Route
+						path="/magic/:element"
+						element={ <MagicElementPage /> }
 					/>
 					<Route 
 						path="/jinn" 
