@@ -104,4 +104,32 @@ router.put("/", uploadMiddleware.single("file"), async (req, res) => {
     });
 })
 
+// Delete post
+router.delete("/:id", async (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, jwtSecret, {}, async (error, response) => {
+        if (error) throw error;
+
+        const { id } = req.params;
+        const postDoc = await Post.findById(id);
+        const userDoc = await User.findById(response.id);
+        const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(response.id);
+        const isAdmin = JSON.stringify(userDoc.role) === "0";
+        
+        if (!isAdmin) {
+            return res.status(401).json("You do not have permissions!");
+        } else if (!isAuthor) {
+            return res.status(400).json("You are not the author!");
+        }
+
+        if (postDoc.cover) {
+            fs.unlinkSync(postDoc.cover);
+        }
+
+        await Post.deleteOne({ _id: id });
+        
+        res.json(postDoc);
+    });
+})
+
 module.exports = router;
