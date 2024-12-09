@@ -1,14 +1,29 @@
 import { useEffect, useState, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import Parser from 'html-react-parser';
-import { UserContext } from '../components/UserContext';
+import { UserContext } from '../contexts/UserContext';
+import { RefreshContext } from '../contexts/RefreshContext';
 import '../styles/PostPage.css';
 
 function PostPage() {
+    const [redirect, setRedirect] = useState(false);
     const [postInfo, setPostInfo] = useState(null);
+    const { setRefreshPosts } = useContext(RefreshContext);
     const { userInfo } = useContext(UserContext);
     const { id } = useParams();
+
+    const handleDeletePost = async () => {
+        const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post/${id}`, {
+            method: "DELETE",
+            credentials: "include"
+        });
+
+        if (response.ok) {
+            setRefreshPosts(true);
+            setRedirect(true);
+        }
+    }
 
     useEffect(() => {
         fetch(`${import.meta.env.VITE_SERVER_URL}/post/${id}`)
@@ -20,13 +35,16 @@ function PostPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    if (redirect) return <Navigate to="/" />
+
     if (!postInfo) return "Loading...";
 
 	return (
 		<div className="post-page">
             { userInfo?.id === postInfo.author._id && (
-                <div className="edit-row">
-                    <Link to={`/edit/${postInfo._id}`} className="edit-button">Edit this post</Link>
+                <div className="post-options">
+                    <Link to={`/edit/${postInfo._id}`} className="options-button">Edit this post</Link>
+                    <Link to={'/'} onClick={handleDeletePost} className="options-button">Delete this post</Link>
                 </div>
             )}
             <div className="image">

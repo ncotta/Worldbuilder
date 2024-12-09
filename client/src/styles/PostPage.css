@@ -51,17 +51,23 @@
     width: 50%;
 }
 
-.post-page .edit-row {
+.post-page .post-options {
     display: flex;
     justify-content: center;
+    gap: 4rem;
 }
 
-.post-page .edit-button {
+.post-page .options-button {
     background-color: var(--elevation-400);
     color: var(--typography-high);
     padding: 0.7rem 1.2rem;
     border-radius: 5px;
     margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.post-page .options-button:hover {
+    background-color: var(--elevation-300);
 }
 
 @media (max-width: 768px) {

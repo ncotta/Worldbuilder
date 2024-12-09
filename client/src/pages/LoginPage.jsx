@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Snackbar } from '@mui/material';
 import '../styles/LoginRegister.css';
-import { UserContext } from '../components/UserContext';
+import { UserContext } from '../contexts/UserContext';
 
 function LoginPage() {
 	const [username, setUsername] = useState("");

@@ -1,7 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
-import { UserContext } from './UserContext';
+import { UserContext } from '../contexts/UserContext';
 
 function Navbar() {
     const { setUserInfo, userInfo } = useContext(UserContext);
@@ -14,6 +14,7 @@ function Navbar() {
                 setUserInfo(userInfo);
             })
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const logout = () => {

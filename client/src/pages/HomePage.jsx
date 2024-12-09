@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Post from '../components/Post';
 import SideNav from '../components/SideNav';
 import Loading from '../components/Loading';
+import { RefreshContext } from '../contexts/RefreshContext';
 import '../styles/HomePage.css';
 
 function HomePage() {
+    const { refreshPosts, setRefreshPosts } = useContext(RefreshContext);
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -19,11 +21,15 @@ function HomePage() {
                 console.error(error);
             } finally {
                 setLoading(false);
+                setRefreshPosts(false);
             }
         }
-            
-        fetchPosts();
-    }, []);
+        
+        if (refreshPosts || !posts.length) {
+            fetchPosts();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [refreshPosts]);
     
 	return (
 		<div className="homepage-container">

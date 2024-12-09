@@ -9,7 +9,7 @@ import EditPost from './pages/EditPost';
 import CategoryPage from './pages/CategoryPage';
 import MagicPage from './pages/MagicPage';
 import MagicElementPage from './pages/MagicElementPage';
-import { UserContextProvider } from './components/UserContext';
+import { UserContextProvider } from './contexts/UserContext';
 import { Route, Routes } from 'react-router-dom';
 
 

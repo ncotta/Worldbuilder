@@ -15,15 +15,13 @@ function CreatePost() {
         const data = new FormData();
         data.set("title", title);
         if (subcategory) {
-            data.set("category", category + " " + subcategory);
+            data.set("category", subcategory);
         } else {
             data.set("category", category);
         }   
             
         data.set("glimpse", glimpse);
         data.set("file", files[0]);
-
-        
 
         event.preventDefault();
         const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`, {
