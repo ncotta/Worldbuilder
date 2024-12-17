@@ -19,3 +19,28 @@
         text-align: center;
     }
 }
+
+.posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.view-all {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--elevation-200);
+    border: 0;
+    color: var(--typography-cream);
+    border-radius: 50px;
+    padding: 15px 20px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.view-all:hover {
+    transition: background-color 0.5s ease;
+    background-color: var(--elevation-300);
+}

@@ -9,12 +9,15 @@ function HomePage() {
     const { refreshPosts, setRefreshPosts } = useContext(RefreshContext);
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [viewAll, setViewAll] = useState(false);
 
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
+            const limitParam = viewAll ? 1000 : 5;
+
             try {
-                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`);
+                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post?limit=${limitParam}`);
                 const posts = await response.json();
                 setPosts(posts);
             } catch (error) {
@@ -25,22 +28,25 @@ function HomePage() {
             }
         }
         
-        if (refreshPosts || !posts.length) {
-            fetchPosts();
-        }
+        fetchPosts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [refreshPosts]);
+    }, [refreshPosts, viewAll]);
     
 	return (
 		<div className="homepage-container">
             <SideNav />
-            <h3 className="filter">Featured</h3>
+            <div className="posts-header">
+                <h3 className="filter">Featured</h3>
+                {!viewAll && ( <button className="view-all" onClick={() => setViewAll(true)}>View All</button> )}
+                {viewAll && ( <button className="view-all" onClick={() => setViewAll(false)}>View Less</button> )}
+            </div>
             {loading && (
                 <Loading/>
             )}
             {posts.length > 0 && posts.map(post => (
                 <Post key={post.id} {...post}/>
             ))}
+            
 		</div>
 	)
 }

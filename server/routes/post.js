@@ -13,10 +13,12 @@ const Post = require('../models/Post');
 
 // Get post(s)
 router.get("/", async (req, res) => {
+    const limit = req.query.limit ? parseInt(req.query.limit) : 10;
+
     const postDoc = await Post.find()
                         .populate("author", ["username"])
                         .sort({createdAt: -1})
-                        .limit(10)
+                        .limit(limit)
 
     res.json(postDoc);
 })
@@ -35,8 +37,6 @@ router.post("/", uploadMiddleware.single("file"), async (req, res) => {
     const parts = originalname.split('.');
     const extension = parts[parts.length - 1];
     const newPath = path + "." + extension;
-    console.log(`original name: ${originalname}`);
-    console.log(`path: ${path}`);
     fs.renameSync(path, newPath);
 
     const { token } = req.cookies;
