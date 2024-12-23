@@ -11,9 +11,10 @@ function CategoryPage({ category, title, about }) {
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
+            const limitParam = 1000; // Fetch all posts
 
             try {
-                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`);
+                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post?limit=${limitParam}`);
                 const posts = await response.json();
                 setPosts(posts);
             } catch (error) {
@@ -34,6 +35,10 @@ function CategoryPage({ category, title, about }) {
             {loading && (
                 <Loading/>
             )}
+            {console.log(posts
+                                .filter(post => (
+                                    post.category === category
+                                )))}
             {posts.length > 0 && posts
                                 .filter(post => (
                                     post.category === category
