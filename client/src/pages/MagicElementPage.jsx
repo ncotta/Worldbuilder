@@ -43,9 +43,10 @@ function MagicElementPage() {
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
+            const limitParam = 1000; // Fetch all posts
 
             try {
-                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`);
+                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post?limit=${limitParam}`);
                 const posts = await response.json();
                 setPosts(posts);
             } catch (error) {
@@ -68,12 +69,8 @@ function MagicElementPage() {
                 <Loading/>
             )}
             {posts.length > 0 && posts
-                                .filter(post => (
-                                    post.category === category
-                                ))
-                                .map(post => (
-                                    <Post key={post.id} {...post}/>
-                                ))
+                .filter(post => post.category === category)
+                .map(post => <Post key={post.id} {...post}/>)
             }
 		</div>
 	)

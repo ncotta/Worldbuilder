@@ -1,0 +1,69 @@
+.divinity-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.divinity-info > .title,
+.divinity-info > .about {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.divinity-info > .title {
+    margin-top: 0.8rem;
+    padding-top: 1rem;
+}
+
+.divinity-info > .about {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: var(--typography-medium);
+}
+
+.divinity-pantheon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.divinity-pantheon > .tier {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+}
+
+.tier-link {
+    padding-top: 1rem;
+}
+
+.tier-link h4 {
+    margin: 0;
+    transition: color 0.5s ease-in-out;
+}
+
+.tier-image {
+    width: 700px;
+    height: 125px;
+    overflow: hidden;
+    position: relative;
+}
+
+.tier-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.tier-link h4:hover {
+    color: var(--typography-medium);
+}
+
+.tier-image img:hover {
+    transform: scale(1.1);
+}

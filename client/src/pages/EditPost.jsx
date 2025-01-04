@@ -82,6 +82,17 @@ function EditPost() {
                 </select>
             )}
 
+            {category === "Divinity" && (
+                <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
+                    <option value="" disabled hidden>Subcategory</option>
+                    <option value="Ineffables">Ineffables</option>
+                    <option value="Primordials">Primordials</option>
+                    <option value="Manifestations">Manifestations</option>
+                    <option value="Nascents">Nascents</option>
+                    <option value="Sacred-Beasts">Sacred Beasts</option>
+                </select>
+            )}
+
 			<input 
                 type="file"
                 onChange={event => setFiles(event.target.files)} 

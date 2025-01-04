@@ -9,6 +9,8 @@ import EditPost from './pages/EditPost';
 import CategoryPage from './pages/CategoryPage';
 import MagicPage from './pages/MagicPage';
 import MagicElementPage from './pages/MagicElementPage';
+import DivinityPage from './pages/DivinityPage';
+import DivinityTierPage from './pages/DivinityTierPage';
 import { UserContextProvider } from './contexts/UserContext';
 import { Route, Routes } from 'react-router-dom';
 
@@ -42,13 +44,11 @@ function App() {
 					/>
 					<Route 
 						path="/jinn" 
-						element={
-							<CategoryPage 
-								category="Divinity" 
-								title="Jinn"
-								about="The gods of this world are surreal and lovely to behold"
-							/>
-						} 
+						element={ <DivinityPage/> } 
+					/>
+					<Route 
+						path="/jinn/:tier" 
+						element={ <DivinityTierPage /> }
 					/>
 					<Route 
 						path="/characters" 

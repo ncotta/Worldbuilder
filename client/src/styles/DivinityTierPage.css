@@ -1,4 +1,4 @@
-.magic-element-container {
+.divinity-tier-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,13 +6,11 @@
     width: 100%;
 }
 
-.magic-element-container > .title,
-.magic-element-container > .about {
+.divinity-tier-container > .title {
     margin-bottom: 0;
 }
 
-.magic-element-container > .about,
-.magic-element-container > .about2 {
+.divinity-tier-container > .about {
     margin-top: 0.5rem;
     color: var(--typography-medium);
 }
