@@ -1,5 +1,6 @@
 import './styles/App.css';
 import Layout from './components/Layout';
+import CustomMap from './components/CustomMap';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -27,11 +28,12 @@ function App() {
 					<Route 
 						path="/civilizations" 
 						element={
-							<CategoryPage 
-								category="Civilization" 
-								title="Civilizations" 
-								about="A country for each celestial body, save for the magnificent Sun, who rules over three" 
-							/>
+							<CustomMap/>
+							// <CategoryPage 
+							// 	category="Civilization" 
+							// 	title="Civilizations" 
+							// 	about="A country for each celestial body, save for the magnificent Sun, who rules over three" 
+							// />
 						} 
 					/>
 					<Route 
