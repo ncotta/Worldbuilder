@@ -28,12 +28,12 @@ function App() {
 					<Route 
 						path="/civilizations" 
 						element={
-							<CustomMap/>
-							// <CategoryPage 
-							// 	category="Civilization" 
-							// 	title="Civilizations" 
-							// 	about="A country for each celestial body, save for the magnificent Sun, who rules over three" 
-							// />
+							// <CustomMap/>
+							<CategoryPage 
+								category="Civilization" 
+								title="Civilizations" 
+								about="A country for each celestial body, save for the magnificent Sun, who rules over three" 
+							/>
 						} 
 					/>
 					<Route 

@@ -13,7 +13,6 @@ function CustomMap() {
                 }}
                 style={{
                     width: '100%',
-
                 }}
                 mapStyle={import.meta.env.VITE_MAPBOX_STYLE}
             />
