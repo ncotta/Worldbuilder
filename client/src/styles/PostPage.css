@@ -1,3 +1,6 @@
+.post-page {
+    width: 80%;
+}
 .post-page .image {
     display: flex;
     overflow: hidden;
@@ -35,20 +38,10 @@
 }
 
 .post-page .glimpse {
-    line-height: 2rem;
+    line-height: 1.2rem;
     color: var(--typography-high);
     margin-top: 3rem;
-    position: relative;
-}
-
-.post-page .glimpse::before {
-    content: "";
-    border-top: 1px solid var(--typography-high);
-    position: absolute;
-    left: 25%;
-    top: -15%;
-    height: 1px;
-    width: 50%;
+    font-size: 1.3rem;
 }
 
 .post-page .post-options {
@@ -75,16 +68,30 @@
         text-align: center;
     }
 
+    .post-page .image {
+        min-height: 8rem;
+    }
+
     .post-page .title {
         font-size: 2rem;
     }
 
     .post-page .glimpse {
-        font-size: 1.2rem;
-        line-height: 1.8rem;
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+        margin-top: 0;
     }
 
-    .post-page .glimpse::before {
-        top: -8%;
+    .post-page .info {
+        font-size: 0.8rem;
+    }
+
+    .post-page .post-options {
+        gap: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .post-page .options-button {
+        padding: 0.5rem 0.7rem;
     }
 }
