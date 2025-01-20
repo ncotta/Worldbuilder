@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -24,5 +25,10 @@ app.use("/login", loginRoutes);  // Login
 app.use("/logout", logoutRoutes); // Logout
 app.use("/profile", profileRoutes);  // Profile for jwt token validity
 app.use("/post", postRoutes);  //  Posts
+
+// Catchall for unmatched routes
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 app.listen(process.env.PORT || 4000);
