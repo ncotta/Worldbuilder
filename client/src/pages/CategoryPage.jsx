@@ -35,18 +35,16 @@ function CategoryPage({ category, title, about }) {
             {loading && (
                 <Loading/>
             )}
-            {console.log(posts
-                                .filter(post => (
-                                    post.category === category
-                                )))}
-            {posts.length > 0 && posts
-                                .filter(post => (
-                                    post.category === category
-                                ))
-                                .map(post => (
-                                    <Post key={post.id} {...post}/>
-                                ))
-            }
+            <div className="posts">
+                {posts.length > 0 && posts
+                                    .filter(post => (
+                                        post.category === category
+                                    ))
+                                    .map(post => (
+                                        <Post key={post.id} {...post}/>
+                                    ))
+                }
+            </div>
 		</div>
 	)
 }

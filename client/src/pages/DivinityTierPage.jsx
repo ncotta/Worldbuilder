@@ -69,14 +69,15 @@ function DivinityTierPage() {
             <SideNav />
             <h2 className="title">{tier.charAt(0).toUpperCase() + tier.slice(1)}</h2>
             <p className="about">{about}</p>
-            <div className="divinity-tier-pantheon">
+
             {loading && (
                 <Loading />
             )}
-            {posts.length > 0 && posts
-                .filter(post => post.category === category)
-                .map(post => <Post key={post.id} {...post} />)
-            }
+            <div className="posts">
+                {posts.length > 0 && posts
+                    .filter(post => post.category === category)
+                    .map(post => <Post key={post.id} {...post} />)
+                }
             </div>
         </div>
     )

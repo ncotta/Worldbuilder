@@ -68,10 +68,12 @@ function MagicElementPage() {
             {loading && (
                 <Loading/>
             )}
-            {posts.length > 0 && posts
-                .filter(post => post.category === category)
-                .map(post => <Post key={post.id} {...post}/>)
-            }
+            <div className="posts">
+                {posts.length > 0 && posts
+                    .filter(post => post.category === category)
+                    .map(post => <Post key={post.id} {...post}/>)
+                }
+            </div>
 		</div>
 	)
 }

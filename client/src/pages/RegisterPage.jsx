@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Snackbar } from '@mui/material';
 import '../styles/LoginRegister.css';

@@ -36,16 +36,19 @@ function HomePage() {
 		<div className="homepage-container">
             <SideNav />
             <div className="posts-header">
-                <h3 className="filter">Featured</h3>
+                <h3 className="filter">Featured Posts</h3>
                 {!viewAll && ( <button className="view-all" onClick={() => setViewAll(true)}>View All</button> )}
                 {viewAll && ( <button className="view-all" onClick={() => setViewAll(false)}>View Less</button> )}
             </div>
             {loading && (
                 <Loading/>
             )}
-            {posts.length > 0 && posts.map(post => (
-                <Post key={post.id} {...post}/>
-            ))}
+            <div className="posts">
+                {posts.length > 0 && posts.map(post => (
+                    <Post key={post.id} {...post}/>
+                ))}
+            </div>
+            
             
 		</div>
 	)

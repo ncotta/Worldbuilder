@@ -12,7 +12,7 @@ function MagicPage() {
             <SideNav />
             <div className="magic-info">
                 <h2 className="title">Magic</h2>
-                <p className="about">Magic is a powerful force that can be harnessed by those who have the ability to wield it. There are four types of magic: fire, water, wind, and earth. Each type of magic has its own strengths and weaknesses, and can be used to cast a variety of spells. Magic is a complex and mysterious force, and those who are able to master it are considered to be among the most powerful beings in the world</p>
+                <p className="about">The energy that flows through the veins of the universe, derived from the celestial bodies</p>
             </div>
             <div className="magic-square">
                 <div className="quarter top-left">
