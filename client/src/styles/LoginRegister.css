@@ -1,47 +1,46 @@
 form.login, 
 form.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 50%;
-    justify-content: center;
+    gap: 2rem;
 }
 
 form.login input,
 form.register input {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.8rem;
-    width: 100%;
-    padding: 7px 10px;
-    border: 1px solid var(--elevation-300);
+    width: 80%;
+    padding: 0.5rem 0.75rem;
+    border: 0;
     border-radius: 5px;
     background-color: var(--elevation-200);
-    font-size: 1.3rem;
-    color: var(--typography-cream);
-    transition: background-color 0.5s ease;
+    font-size: 1.4rem;
+    color: var(--typography-high);
+    transition: background-color 0.5s ease-in-out;
 }
 
 form.login input:hover,
 form.register input:hover {
-    transition: background-color 0.5s ease;
     background-color: var(--elevation-300);
 }
 
 form.login input:focus,
 form.register input:focus {
     background-color: var(--elevation-300);
-    outline: var(--primary-blue-green) solid 4px;
+    outline: 0;
 }
 
 form.login button,
 form.register button {
-    width: 100%;
-    margin-top: 2rem;
+    width: 50%;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     background-color: var(--primary-blue-green);
     border: 0;
-    color: var(--typography-cream);
+    color: var(--typography-high);
     border-radius: 5px;
-    padding: 10px;
+    padding: 0.7rem;
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.5s ease;
@@ -53,13 +52,22 @@ form.register button:hover {
     background-color: var(--primary-grey-green);
 }
 
-form.login h1, form.register {
+form.login h1, form.register h1 {
     text-align: center;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
     form.login,
     form.register {
         width: 90%;
+    }
+
+    form.login h1,
+    form.register h1 {
+        font-size: 2rem;
+        margin-top: 2rem;
     }
 }

@@ -1,22 +1,20 @@
 .side-nav {
     width: 100%;
-    padding: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 3rem 0;
 }
 
 .side-nav nav {
     display: flex;
-    justify-content: space-between;
+    gap: 10rem;
+    justify-content: center;
 }
 
 .side-nav a {
-    cursor: pointer;
     position: relative;
     padding: 0.5rem;
-    transition: background-color 0.5s ease;
     border-radius: 5px;
     color: var(--typography-medium);
+    font-size: 1.8rem;
 }
 
 .side-nav a::after {
@@ -29,7 +27,7 @@
     left: 0;
     background-color: var(--typography-high);
     transform-origin: bottom right;
-    transition: transform 0.35s ease-out;
+    transition: transform 0.35s ease-in-out;
 }
   
 .side-nav a:hover::after {
@@ -39,15 +37,21 @@
 
 @media (max-width: 768px) {
     .side-nav {
-        width: 100%;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
     }
 
     .side-nav nav {
-        flex-wrap: wrap;
+        /* flex-direction: column;
         justify-content: center;
+        align-items: center;
+        gap: 0; */
+        flex-wrap: wrap;
+        gap: 0.7rem;
     }
 
     .side-nav a {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        padding: 0.2rem;
     }
 }

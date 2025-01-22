@@ -1,15 +1,11 @@
-.category-container {
-    width: 100%;
-}
-
 .category-container > .title,
 .category-container > .about {
     text-align: center;
+    margin-top: 0;
     margin-bottom: 0.5rem;
 }
 
 .category-container > .about {
-    margin-top: 0;
     margin-bottom: 2rem;
     color: var(--typography-medium)
 }

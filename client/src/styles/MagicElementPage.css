@@ -8,6 +8,7 @@
 
 .magic-element-container > .title,
 .magic-element-container > .about {
+    margin-top: 0;
     margin-bottom: 0;
 }
 
