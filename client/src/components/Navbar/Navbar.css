@@ -1,17 +1,11 @@
-header {
-    padding: 0.5rem;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
+    align-items: baseline;
+    margin-top: 2.5rem;
 }
 
 .navbar a {
-    text-decoration: none;
-    color: inherit;
     cursor: pointer;
 }
 
@@ -22,9 +16,8 @@ header {
 
 .navbar nav {
     display: flex;
-    align-items: flex-end;
-    gap: 3rem;
-    font-size: 2rem;
+    gap: 3.5rem;
+    font-size: 2.1rem;
 }
 
 .navbar .welcome {
@@ -32,20 +25,24 @@ header {
     margin: 0;
 }
 
-.navbar nav Link,
-.navbar nav a,
+.navbar Link,
+.navbar a,
 .navbar .logo {
-    transition: color 0.5s ease;
+    transition: color 0.4s ease-in-out;
 }
 
-.navbar nav Link:hover,
-.navbar nav a:hover,
+.navbar Link:hover,
+.navbar a:hover,
 .navbar .logo:hover {
-    transition: color 0.5s ease;
     color: var(--typography-medium);
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
     .navbar,
     .navbar nav {
         flex-wrap: wrap;
@@ -53,23 +50,25 @@ header {
     }
 
     .navbar .logo {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        padding-bottom: 0.5rem;
     }
 
-    .navbar nav .welcome {
+    .navbar .welcome {
         min-width: 100%;
         text-align: center;
+        color: var(--typography-medium);
+        font-size: 1.3rem;
     }
 
-    .navbar nav a,
-    .navbar nav Link,
-    .navbar nav .welcome {
-        font-size: 1.5rem;
+    .navbar a,
+    .navbar Link
+     {
+        font-size: 1.7rem;
     }
 
     .navbar nav,
     .navbar .logo {
-        margin: 0 auto;
         gap: 0.5rem;
     }
 }

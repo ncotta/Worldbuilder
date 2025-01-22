@@ -1,0 +1,33 @@
+.footer {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.footer-content ul {
+    display: flex;
+    gap: 4rem;
+}
+
+.footer-content ul li {
+    list-style: none;
+}
+
+.footer-content ul li a,
+.footer-content p {
+    color: var(--typography-disabled);
+    font-size: 1.3rem;   
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 3rem 1rem;
+    }
+}

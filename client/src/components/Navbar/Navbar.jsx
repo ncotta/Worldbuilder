@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react';
-import '../styles/Navbar.css';
+import './Navbar.css';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 
 function Navbar() {
     const { setUserInfo, userInfo } = useContext(UserContext);
@@ -37,8 +37,10 @@ function Navbar() {
                     {username && role === 0 && (
                         <>
                             <h4 className="welcome">Welcome, {username}</h4>
-                            <Link to="/create">Create</Link>
-                            <a onClick={logout}>Logout</a>
+                            <div>
+                                <Link to="/create">Create</Link>
+                                <a onClick={logout}>Logout</a>
+                            </div>
                         </>
                     )}
                     {username && role === 1 && (
