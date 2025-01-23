@@ -59,9 +59,18 @@ main {
 }
 
 @media (max-width: 768px) {
+    body {
+        height: 100%;
+    }
+
     main {
         min-width: 100%;
+        min-height: 100vh;
         padding: 1rem;
+    }
+
+    #root {
+        flex: 1;
     }
 }
 

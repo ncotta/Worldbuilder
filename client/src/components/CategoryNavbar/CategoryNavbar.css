@@ -39,13 +39,10 @@
     .category-navbar {
         padding-top: 0.3rem;
         padding-bottom: 0.3rem;
+        margin-bottom: 0.4rem;
     }
 
     .category-navbar nav {
-        /* flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0; */
         flex-wrap: wrap;
         gap: 0.7rem;
     }

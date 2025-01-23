@@ -1,23 +1,63 @@
-.create-form {
+.create-post-container {
     width: 100%;
 }
 
-.create-button {
-    margin-top: 2rem;
+.create-post-container .image {
+    display: flex;
+    overflow: hidden;
+    min-height: 13rem;
+    position: relative;
+    z-index: -2;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.create-post-container .image img {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.create-post-container .image .overlay-box {
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    padding: 0.75rem;
+    letter-spacing: 0.1rem;
+    width: 18%;
+}
+
+.create-post-container .image h1 {
+    margin: 0 0.5rem;
+    color: var(--typography-medium);
+    text-align: center;
+}
+
+.create-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.create-form .quill {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.create-button {
     background-color: var(--elevation-200);
     border: 0;
     color: var(--typography-high);
-    border-radius: 50px;
-    padding: 15px 20px;
+    border-radius: 30px;
+    padding: 0.9rem 1.2rem;
     font-size: 1.3rem;
     cursor: pointer;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease-in-out;
+    width: 13%;
 }
 
 .create-button:hover {
-    transition: background-color 0.5s ease;
     background-color: var(--elevation-300);
 }
 

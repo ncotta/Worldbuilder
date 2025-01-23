@@ -30,4 +30,9 @@
     .footer {
         padding: 2rem 3rem 1rem;
     }
+
+    .footer-content ul li a,
+    .footer-content p {
+        font-size: 0.8rem;
+    }
 }
