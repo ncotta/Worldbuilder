@@ -1,6 +1,6 @@
 import './App.css';
 import AppLayout from './components/AppLayout/AppLayout';
-import CivilizationMap from './components/CivilizationMap/CivilizationMap';
+
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
