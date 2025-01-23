@@ -1,7 +1,7 @@
 import Map from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-function CustomMap() {
+function CivilizationMap() {
     return (
         <div style={{ width: '100%', height: '80vh' }}>
             <Map
@@ -20,4 +20,4 @@ function CustomMap() {
     )
 }
 
-export default CustomMap;
+export default CivilizationMap;

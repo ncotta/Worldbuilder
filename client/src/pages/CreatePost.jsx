@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import Editor from '../components/Editor';
+import Editor from '../components/Editor/Editor';
 import '../styles/CreatePost.css';
 
 function CreatePost() {

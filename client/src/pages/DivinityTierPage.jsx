@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import SideNav from '../components/SideNav';
-import Post from '../components/Post';
-import Loading from '../components/Loading';
+import Post from '../components/Post/Post';
+import Loading from '../components/Loading/Loading';
 import '../styles/DivinityTierPage.css';
 
 
@@ -66,7 +65,6 @@ function DivinityTierPage() {
 
     return (
         <div className="divinity-tier-container">
-            <SideNav />
             <h2 className="title">{tier.charAt(0).toUpperCase() + tier.slice(1)}</h2>
             <p className="about">{about}</p>
 

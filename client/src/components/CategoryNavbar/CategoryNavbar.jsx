@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import '../styles/SideNav.css';
+import './CategoryNavbar.css';
 
-function SideNav() {	
+function CategoryNavbar() {	
 	return (
-		<div className="side-nav">
+		<div className="category-navbar">
             <nav>
                 <Link to="/civilizations" className="category">Civilizations</Link> 
                 <Link to="/magic" className="category">Magic</Link>
@@ -14,4 +14,4 @@ function SideNav() {
 	)
 }
 
-export default SideNav;
+export default CategoryNavbar;

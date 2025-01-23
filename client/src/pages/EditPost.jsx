@@ -1,6 +1,6 @@
 import { useState, useEffect }  from 'react';
 import { Navigate, useParams } from 'react-router-dom';    
-import Editor from '../components/Editor';
+import Editor from '../components/Editor/Editor';
 
 
 function EditPost() {

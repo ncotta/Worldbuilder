@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import SideNav from '../components/SideNav';
-import Post from '../components/Post';
-import Loading from '../components/Loading';
+import Post from '../components/Post/Post';
+import Loading from '../components/Loading/Loading';
 import '../styles/MagicElementPage.css';
 
 function MagicElementPage() {
@@ -61,7 +60,6 @@ function MagicElementPage() {
     
 	return (
 		<div className="magic-element-container">
-            <SideNav />
             <h2 className="title">{element.charAt(0).toUpperCase() + element.slice(1)}</h2>
             <p className="about">{about}</p>
             <p className="about2">{about2}</p>

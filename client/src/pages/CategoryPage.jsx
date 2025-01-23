@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import Post from '../components/Post';
-import Loading from '../components/Loading';
-import SideNav from '../components/SideNav';
+import Post from '../components/Post/Post';
+import Loading from '../components/Loading/Loading';
 import '../styles/CategoryPage.css';
 
 function CategoryPage({ category, title, about }) {
@@ -29,7 +28,6 @@ function CategoryPage({ category, title, about }) {
     
 	return (
 		<div className="category-container">
-            <SideNav />
             <h2 className="title">{title}</h2>
             <p className="about">{about}</p>
             {loading && (

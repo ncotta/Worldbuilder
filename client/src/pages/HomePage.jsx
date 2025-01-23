@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
-import Post from '../components/Post';
-import SideNav from '../components/SideNav';
-import Loading from '../components/Loading';
+import Post from '../components/Post/Post';
+
+import Loading from '../components/Loading/Loading';
 import { RefreshContext } from '../contexts/RefreshContext';
 import '../styles/HomePage.css';
 
@@ -34,7 +34,6 @@ function HomePage() {
     
 	return (
 		<div className="homepage-container">
-            <SideNav />
             <div className="posts-header">
                 <h3 className="filter">Featured Posts</h3>
                 {!viewAll && ( <button className="view-all" onClick={() => setViewAll(true)}>View All</button> )}

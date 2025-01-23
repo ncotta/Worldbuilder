@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import { format } from 'date-fns';
-import '../styles/Post.css';
+import './Post.css';
 
 function Post({ _id, cover, title, category, createdAt, glimpse }) {
     const [isMouseOver, setIsMouseOver] = useState(false);

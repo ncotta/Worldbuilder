@@ -1,4 +1,3 @@
-import SideNav from '../components/SideNav';
 import Ineffables from '../assets/divine/ineffables.png';
 import Primordials from '../assets/divine/primordials.png';
 import Manifestations from '../assets/divine/manifestations.png';
@@ -10,7 +9,6 @@ import { Link } from 'react-router-dom';
 function DivinityPage() {
 	return (
 		<div className="divinity-container">
-            <SideNav />
             <div className="divinity-info">
                 <h2 className="title">Jinn</h2>
                 <p className="about">The gods of this world are surreal and lovely to behold</p>

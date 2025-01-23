@@ -1,6 +1,6 @@
 import './styles/App.css';
-import Layout from './components/Layout';
-import CustomMap from './components/CustomMap';
+import AppLayout from './components/AppLayout/AppLayout';
+import CivilizationMap from './components/CivilizationMap/CivilizationMap';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -20,15 +20,17 @@ function App() {
 	return (
 		<UserContextProvider>
 			<Routes>
-				<Route path={"/"} element={<Layout />}>
+				<Route path={"/"} element={<AppLayout />}>
 					<Route index element={<HomePage />} />
+					<Route path="/about" element={<div>About</div>} />
+					<Route path="/contact" element={<div>Contact</div>} />
 					<Route path="/login" element={<LoginPage />} />
 					<Route path="/register" element={<RegisterPage />}/>
 					<Route path="/create" element={<CreatePost />}/>
 					<Route 
 						path="/civilizations" 
 						element={
-							// <CustomMap/>
+							// <CivilizationMap/>
 							<CategoryPage 
 								category="Civilization" 
 								title="Civilizations" 

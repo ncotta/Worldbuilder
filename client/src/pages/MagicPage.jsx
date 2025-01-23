@@ -2,14 +2,12 @@ import WaterMagic from '../assets/magic/water.png';
 import FireMagic from '../assets/magic/fire.png';
 import EarthMagic from '../assets/magic/earth.png';
 import WindMagic from '../assets/magic/wind.png';
-import SideNav from '../components/SideNav';
 import '../styles/MagicPage.css';
 import { Link } from 'react-router-dom';
 
 function MagicPage() {
 	return (
 		<div className="magic-container">
-            <SideNav />
             <div className="magic-info">
                 <h2 className="title">Magic</h2>
                 <p className="about">The energy that flows through the veins of the universe, derived from the celestial bodies</p>
