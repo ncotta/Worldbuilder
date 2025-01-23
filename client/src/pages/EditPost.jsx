@@ -1,6 +1,7 @@
 import { useState, useEffect }  from 'react';
 import { Navigate, useParams } from 'react-router-dom';    
 import Editor from '../components/Editor/Editor';
+import '../styles/CreatePost.css';
 
 
 function EditPost() {
@@ -10,6 +11,7 @@ function EditPost() {
     const [subcategory, setSubcategory] = useState("");
     const [glimpse, setGlimpse] = useState("");
     const [files, setFiles] = useState("");
+    const [cover, setCover] = useState("");
     const [redirect, setRedirect] = useState(false);
 
 	useEffect(() => {
@@ -20,6 +22,7 @@ function EditPost() {
                 setTitle(postInfo.title);
                 setGlimpse(postInfo.glimpse);
                 setCategory(postInfo.category);
+                setCover(postInfo.cover);
             } catch (error) {
                 console.error(error);
             }
@@ -57,53 +60,61 @@ function EditPost() {
     if (redirect) return <Navigate to={`/post/${id}`} />
 
 	return (
-		<form className="create-form" onSubmit={updatePost}>
-			<input 
-                type="title" 
-                placeholder={"Title"} 
-                value={title} 
-                onChange={event => setTitle(event.target.value)} 
-            />
-			<select value={category} onChange={event => setCategory(event.target.value)} >
-                <option value="" disabled hidden>Category</option>
-                <option value="Civilization">Civilization</option>
-                <option value="Magic">Magic</option>
-                <option value="Divinity">Divinity</option>
-                <option value="People">People</option>
-            </select>
-
-            {category === "Magic" && (
-                <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
-                    <option value="" disabled hidden>Subcategory</option>
-                    <option value="Fire Magic">Fire</option>
-                    <option value="Water Magic">Water</option>
-                    <option value="Earth Magic">Earth</option>
-                    <option value="Air Magic">Air</option>
+        <div className="create-post-container">
+            <div className="image">
+                <img src={`${import.meta.env.VITE_SERVER_URL}/${cover}`} alt="" />
+                <div className="overlay-box">
+                    <h1 className="title">{title}</h1>
+                </div>
+            </div>
+            <form className="create-form" onSubmit={updatePost}>
+                <input 
+                    type="title" 
+                    placeholder={"Title"} 
+                    value={title} 
+                    onChange={event => setTitle(event.target.value)} 
+                />
+                <select value={category} onChange={event => setCategory(event.target.value)} >
+                    <option value="" disabled hidden>Category</option>
+                    <option value="Civilization">Civilization</option>
+                    <option value="Magic">Magic</option>
+                    <option value="Divinity">Divinity</option>
+                    <option value="People">People</option>
                 </select>
-            )}
 
-            {category === "Divinity" && (
-                <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
-                    <option value="" disabled hidden>Subcategory</option>
-                    <option value="Ineffables">Ineffables</option>
-                    <option value="Primordials">Primordials</option>
-                    <option value="Manifestations">Manifestations</option>
-                    <option value="Nascents">Nascents</option>
-                    <option value="Sacred-Beasts">Sacred Beasts</option>
-                </select>
-            )}
+                {category === "Magic" && (
+                    <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
+                        <option value="" disabled hidden>Subcategory</option>
+                        <option value="Fire Magic">Fire</option>
+                        <option value="Water Magic">Water</option>
+                        <option value="Earth Magic">Earth</option>
+                        <option value="Air Magic">Air</option>
+                    </select>
+                )}
 
-			<input 
-                type="file"
-                onChange={event => setFiles(event.target.files)} 
-            />
-            <Editor 
-                value={glimpse}
-                onChange={setGlimpse}
-            />
-			<button className="create-button">Update post</button>
-		</form>
-  )
+                {category === "Divinity" && (
+                    <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
+                        <option value="" disabled hidden>Subcategory</option>
+                        <option value="Ineffables">Ineffables</option>
+                        <option value="Primordials">Primordials</option>
+                        <option value="Manifestations">Manifestations</option>
+                        <option value="Nascents">Nascents</option>
+                        <option value="Sacred-Beasts">Sacred Beasts</option>
+                    </select>
+                )}
+
+                <input 
+                    type="file"
+                    onChange={event => setFiles(event.target.files)} 
+                />
+                <Editor 
+                    value={glimpse}
+                    onChange={setGlimpse}
+                />
+                <button className="create-button">Update post</button>
+            </form>
+        </div>
+    )
 }
 
 export default EditPost

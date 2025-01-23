@@ -1,6 +1,7 @@
 .post-page {
     width: 100%;
 }
+
 .post-page .image {
     display: flex;
     overflow: hidden;
@@ -18,20 +19,23 @@
 }
 
 .post-page .image .overlay-box {
-    background-color: rgba(30, 30, 30, 0.75);
-    border-radius: 5px;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    padding: 0.75rem;
+    letter-spacing: 0.1rem;
+    width: 18%;
 }
 
 .post-page .image h1 {
     margin: 0 0.5rem;
-    color: #9f9f9f;
+    color: var(--typography-medium);
     text-align: center;
 }
 
 .post-page .info {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 4rem;
     font-size: 1.2rem;
     color: var(--typography-medium);
     margin: 0.5rem 0;
@@ -47,15 +51,15 @@
 .post-page .post-options {
     display: flex;
     justify-content: center;
-    gap: 4rem;
+    gap: 15rem;
+    margin-bottom: 1.5rem;
 }
 
 .post-page .options-button {
-    background-color: var(--elevation-400);
+    background-color: var(--elevation-200);
     color: var(--typography-high);
-    padding: 0.7rem 1.2rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+    padding: 0.9rem 1.4rem;
+    border-radius: 30px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -69,7 +73,7 @@
     }
 
     .post-page .image {
-        min-height: 8rem;
+        min-height: 6rem;
     }
 
     .post-page .title {
@@ -89,9 +93,19 @@
     .post-page .post-options {
         gap: 2rem;
         font-size: 0.9rem;
+        margin-bottom: 1rem;
     }
 
     .post-page .options-button {
         padding: 0.5rem 0.7rem;
+    }
+
+    .post-page .image .overlay-box {
+        width: 30%;
+        padding: 0.6rem 0;
+    }
+
+    .post-page .image h1 {
+        font-size: 1.4rem;
     }
 }

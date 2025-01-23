@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import Parser from 'html-react-parser';
 import { UserContext } from '../contexts/UserContext';
 import { RefreshContext } from '../contexts/RefreshContext';
+import Loading from '../components/Loading/Loading';
 import '../styles/PostPage.css';
 
 function PostPage() {
@@ -37,14 +38,14 @@ function PostPage() {
 
     if (redirect) return <Navigate to="/" />
 
-    if (!postInfo) return "Loading...";
+    if (!postInfo) return <Loading />;
 
 	return (
 		<div className="post-page">
             { userInfo?.id === postInfo.author._id && (
                 <div className="post-options">
-                    <Link to={`/edit/${postInfo._id}`} className="options-button">Edit this post</Link>
-                    <Link to={'/'} onClick={handleDeletePost} className="options-button">Delete this post</Link>
+                    <Link to={`/edit/${postInfo._id}`} className="options-button">Edit post</Link>
+                    <Link to={'/'} onClick={handleDeletePost} className="options-button">Delete post</Link>
                 </div>
             )}
             <div className="image">

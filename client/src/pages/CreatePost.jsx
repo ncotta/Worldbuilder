@@ -36,52 +36,54 @@ function CreatePost() {
     if (redirect) return <Navigate to="/" />
 
 	return (
-		<form className="create-form" onSubmit={createNewPost}>
-			<input 
-                type="title" 
-                placeholder={"Title"} 
-                value={title} 
-                onChange={event => setTitle(event.target.value)} 
-            />
-            <select value={category} onChange={event => setCategory(event.target.value)} >
-                <option value="" disabled hidden>Category</option>
-                <option value="Civilization">Civilization</option>
-                <option value="Magic">Magic</option>
-                <option value="Divinity">Divinity</option>
-                <option value="People">People</option>
-            </select>
-
-            {category === "Magic" && (
-                <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
-                    <option value="" disabled hidden>Subcategory</option>
-                    <option value="Fire Magic">Fire</option>
-                    <option value="Water Magic">Water</option>
-                    <option value="Earth Magic">Earth</option>
-                    <option value="Air Magic">Air</option>
+        <div className="create-post-container">
+            <form className="create-form" onSubmit={createNewPost}>
+                <input 
+                    type="title" 
+                    placeholder={"Title"} 
+                    value={title} 
+                    onChange={event => setTitle(event.target.value)} 
+                />
+                <select value={category} onChange={event => setCategory(event.target.value)} >
+                    <option value="" disabled hidden>Category</option>
+                    <option value="Civilization">Civilization</option>
+                    <option value="Magic">Magic</option>
+                    <option value="Divinity">Divinity</option>
+                    <option value="People">People</option>
                 </select>
-            )}
 
-            {category === "Divinity" && (
-                <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
-                    <option value="" disabled hidden>Subcategory</option>
-                    <option value="Ineffables">Ineffables</option>
-                    <option value="Primordials">Primordials</option>
-                    <option value="Manifestations">Manifestations</option>
-                    <option value="Nascents">Nascents</option>
-                    <option value="Sacred-Beasts">Sacred Beasts</option>
-                </select>
-            )}
+                {category === "Magic" && (
+                    <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
+                        <option value="" disabled hidden>Subcategory</option>
+                        <option value="Fire Magic">Fire</option>
+                        <option value="Water Magic">Water</option>
+                        <option value="Earth Magic">Earth</option>
+                        <option value="Air Magic">Air</option>
+                    </select>
+                )}
 
-			<input 
-                type="file"
-                onChange={event => setFiles(event.target.files)} 
-            />
-            <Editor 
-                value={glimpse}
-                onChange={setGlimpse}
-            />
-			<button className="create-button">Create post</button>
-		</form>
+                {category === "Divinity" && (
+                    <select value={subcategory} onChange={event => setSubcategory(event.target.value)} >
+                        <option value="" disabled hidden>Subcategory</option>
+                        <option value="Ineffables">Ineffables</option>
+                        <option value="Primordials">Primordials</option>
+                        <option value="Manifestations">Manifestations</option>
+                        <option value="Nascents">Nascents</option>
+                        <option value="Sacred-Beasts">Sacred Beasts</option>
+                    </select>
+                )}
+
+                <input 
+                    type="file"
+                    onChange={event => setFiles(event.target.files)} 
+                />
+                <Editor 
+                    value={glimpse}
+                    onChange={setGlimpse}
+                />
+                <button className="create-button">Create post</button>
+            </form>
+        </div>
     )
 }
 

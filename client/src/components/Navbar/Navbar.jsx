@@ -37,7 +37,7 @@ function Navbar() {
                     {username && role === 0 && (
                         <>
                             <h4 className="welcome">Welcome, {username}</h4>
-                            <div>
+                            <div className="links">
                                 <Link to="/create">Create</Link>
                                 <a onClick={logout}>Logout</a>
                             </div>
