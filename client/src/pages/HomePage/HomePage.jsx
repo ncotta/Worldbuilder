@@ -1,9 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
-import Post from '../components/Post/Post';
-
-import Loading from '../components/Loading/Loading';
-import { RefreshContext } from '../contexts/RefreshContext';
-import '../styles/HomePage.css';
+import Post from '../../components/Post/Post';
+import Loading from '../../components/Loading/Loading';
+import { RefreshContext } from '../../contexts/RefreshContext';
+import './HomePage.css';
 
 function HomePage() {
     const { refreshPosts, setRefreshPosts } = useContext(RefreshContext);

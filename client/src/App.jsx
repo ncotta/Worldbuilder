@@ -1,17 +1,17 @@
-import './styles/App.css';
+import './App.css';
 import AppLayout from './components/AppLayout/AppLayout';
 import CivilizationMap from './components/CivilizationMap/CivilizationMap';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import CreatePost from './pages/CreatePost';
-import PostPage from './pages/PostPage';
-import EditPost from './pages/EditPost';
-import CategoryPage from './pages/CategoryPage';
-import MagicPage from './pages/MagicPage';
-import MagicElementPage from './pages/MagicElementPage';
-import DivinityPage from './pages/DivinityPage';
-import DivinityTierPage from './pages/DivinityTierPage';
+import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import CreatePostPage from './pages/CreatePostPage/CreatePostPage';
+import EditPostPage from './pages/EditPostPage/EditPostPage';
+import PostPage from './pages/PostPage/PostPage';
+import CategoryPage from './pages/CategoryPage/CategoryPage';
+import MagicPage from './pages/MagicPage/MagicPage';
+import MagicElementPage from './pages/MagicElementPage/MagicElementPage';
+import DivinityPage from './pages/DivinityPage/DivinityPage';
+import DivinityTierPage from './pages/DivinityTierPage/DivinityTierPage';
 import { UserContextProvider } from './contexts/UserContext';
 import { Route, Routes } from 'react-router-dom';
 
@@ -26,7 +26,9 @@ function App() {
 					<Route path="/contact" element={<div>Contact</div>} />
 					<Route path="/login" element={<LoginPage />} />
 					<Route path="/register" element={<RegisterPage />}/>
-					<Route path="/create" element={<CreatePost />}/>
+					<Route path="/create" element={<CreatePostPage />}/>
+					<Route path="/edit/:id" element={<EditPostPage />} />
+					<Route path="/post/:id" element={<PostPage />} />
 					<Route 
 						path="/civilizations" 
 						element={
@@ -64,8 +66,6 @@ function App() {
 							/>
 						} 
 					/>
-					<Route path="/post/:id" element={<PostPage />} />
-					<Route path="/edit/:id" element={<EditPost />} />
 				</Route>
 			</Routes>
 		</UserContextProvider>

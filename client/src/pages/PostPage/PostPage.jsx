@@ -2,10 +2,10 @@ import { useEffect, useState, useContext } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import Parser from 'html-react-parser';
-import { UserContext } from '../contexts/UserContext';
-import { RefreshContext } from '../contexts/RefreshContext';
-import Loading from '../components/Loading/Loading';
-import '../styles/PostPage.css';
+import { UserContext } from '../../contexts/UserContext';
+import { RefreshContext } from '../../contexts/RefreshContext';
+import Loading from '../../components/Loading/Loading';
+import './PostPage.css';
 
 function PostPage() {
     const [redirect, setRedirect] = useState(false);

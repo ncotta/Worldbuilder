@@ -1,9 +1,9 @@
-import WaterMagic from '../assets/magic/water.png';
-import FireMagic from '../assets/magic/fire.png';
-import EarthMagic from '../assets/magic/earth.png';
-import WindMagic from '../assets/magic/wind.png';
-import '../styles/MagicPage.css';
+import WaterMagic from '../../assets/magic/water.png';
+import FireMagic from '../../assets/magic/fire.png';
+import EarthMagic from '../../assets/magic/earth.png';
+import WindMagic from '../../assets/magic/wind.png';
 import { Link } from 'react-router-dom';
+import './MagicPage.css';
 
 function MagicPage() {
 	return (

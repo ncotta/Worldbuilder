@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Post from '../components/Post/Post';
-import Loading from '../components/Loading/Loading';
-import '../styles/MagicElementPage.css';
+import Post from '../../components/Post/Post';
+import Loading from '../../components/Loading/Loading';
+import './MagicElementPage.css';
 
 function MagicElementPage() {
 	const { element } = useParams();

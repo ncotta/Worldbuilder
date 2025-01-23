@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Post from '../components/Post/Post';
-import Loading from '../components/Loading/Loading';
-import '../styles/CategoryPage.css';
+import Post from '../../components/Post/Post';
+import Loading from '../../components/Loading/Loading';
+import './CategoryPage.css';
 
 function CategoryPage({ category, title, about }) {
     const [posts, setPosts] = useState([]);

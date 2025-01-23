@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Snackbar } from '@mui/material';
-import '../styles/LoginRegister.css';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
+import './LoginRegister.css';
 
 function LoginPage() {
 	const [username, setUsername] = useState("");

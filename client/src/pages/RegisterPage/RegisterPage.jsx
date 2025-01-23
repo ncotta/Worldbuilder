@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Snackbar } from '@mui/material';
-import '../styles/LoginRegister.css';
+import '../LoginPage/LoginRegister.css';
 
 function RegisterPage() {
 	const [username, setUsername] = useState("");

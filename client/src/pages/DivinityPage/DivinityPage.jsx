@@ -1,9 +1,9 @@
-import Ineffables from '../assets/divine/ineffables.png';
-import Primordials from '../assets/divine/primordials.png';
-import Manifestations from '../assets/divine/manifestations.png';
-import Nascents from '../assets/divine/nascents.png';
-import SacredBeasts from '../assets/divine/sacred-beasts.png';
-import '../styles/DivinityPage.css';
+import Ineffables from '../../assets/divine/ineffables.png';
+import Primordials from '../../assets/divine/primordials.png';
+import Manifestations from '../../assets/divine/manifestations.png';
+import Nascents from '../../assets/divine/nascents.png';
+import SacredBeasts from '../../assets/divine/sacred-beasts.png';
+import './DivinityPage.css';
 import { Link } from 'react-router-dom';
 
 function DivinityPage() {

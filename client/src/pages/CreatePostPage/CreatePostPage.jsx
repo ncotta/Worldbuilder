@@ -1,73 +1,43 @@
-import { useState, useEffect }  from 'react';
-import { Navigate, useParams } from 'react-router-dom';    
-import Editor from '../components/Editor/Editor';
-import '../styles/CreatePost.css';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import Editor from '../../components/Editor/Editor';
+import './CreatePostPage.css';
 
-
-function EditPost() {
-    const { id } = useParams();
-	const [title, setTitle] = useState("");
+function CreatePostPage() {
+    const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [subcategory, setSubcategory] = useState("");
     const [glimpse, setGlimpse] = useState("");
     const [files, setFiles] = useState("");
-    const [cover, setCover] = useState("");
     const [redirect, setRedirect] = useState(false);
 
-	useEffect(() => {
-        const fetchPost = async () => {
-            try {
-                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post/${id}`);
-                const postInfo = await response.json();
-                setTitle(postInfo.title);
-                setGlimpse(postInfo.glimpse);
-                setCategory(postInfo.category);
-                setCover(postInfo.cover);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchPost();
-    }, [id]);
-
-    const updatePost = async (event) => {
-        event.preventDefault();
+    const createNewPost = async (event) => {
         const data = new FormData();
         data.set("title", title);
-        data.set("category", category);
         if (subcategory) {
-            data.set("category", category + " " + subcategory);
+            data.set("category", subcategory);
         } else {
             data.set("category", category);
         }   
-        
+            
         data.set("glimpse", glimpse);
-        data.set("id", id);
-        if (files?.[0]) {
-            data.set("file", files?.[0]);
-        }
+        data.set("file", files[0]);
 
+        event.preventDefault();
         const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post`, {
-            method: "PUT",
+            method: "POST",
             body: data,
             credentials: "include"
         });
 
         if (response.ok) setRedirect(true);
-    };
+    }
 
-    if (redirect) return <Navigate to={`/post/${id}`} />
+    if (redirect) return <Navigate to="/" />
 
 	return (
         <div className="create-post-container">
-            <div className="image">
-                <img src={`${import.meta.env.VITE_SERVER_URL}/${cover}`} alt="" />
-                <div className="overlay-box">
-                    <h1 className="title">{title}</h1>
-                </div>
-            </div>
-            <form className="create-form" onSubmit={updatePost}>
+            <form className="create-form" onSubmit={createNewPost}>
                 <input 
                     type="title" 
                     placeholder={"Title"} 
@@ -111,10 +81,10 @@ function EditPost() {
                     value={glimpse}
                     onChange={setGlimpse}
                 />
-                <button className="create-button">Update post</button>
+                <button className="create-button">Create post</button>
             </form>
         </div>
     )
 }
 
-export default EditPost
+export default CreatePostPage;
