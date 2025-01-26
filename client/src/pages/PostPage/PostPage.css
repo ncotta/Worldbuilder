@@ -42,10 +42,14 @@
 }
 
 .post-page .glimpse {
-    line-height: 1.2rem;
+    line-height: 1.9rem;
     color: var(--typography-high);
     margin-top: 3rem;
     font-size: 1.3rem;
+}
+
+.post-page .glimpse p {
+    margin: 0;
 }
 
 .post-page .post-options {

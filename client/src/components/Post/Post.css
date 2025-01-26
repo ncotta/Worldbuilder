@@ -20,13 +20,9 @@
     background-position: center center;
 }
 
-.post .image {
-    max-width: 225px;
-    max-height: 225px;
-}
-
 .post .image img {
-    max-height: 225px;
+    max-width: 20rem;
+    max-height: 20rem;
 }
 
 .post .text {
@@ -37,7 +33,7 @@
 
 .post .glimpse {
     overflow: hidden;
-    max-height: 9rem;
+    max-height: 15rem;
     text-overflow: ellipsis;
 }
 
