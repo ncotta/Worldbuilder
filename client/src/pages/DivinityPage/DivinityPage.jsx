@@ -18,50 +18,40 @@ function DivinityPage() {
                     <Link to="ineffables" className="tier-link">
                         <div className="tier-image">
                             <img src={Ineffables}/>
+                            <div className="tier-text">Ineffables</div>
                         </div>
-                    </Link>
-                    <Link to="ineffables" className="tier-link">
-                        <h4>Ineffables</h4>
                     </Link>
                 </div>
                 <div className="tier primordials">
                     <Link to="primordials" className="tier-link">
                         <div className="tier-image">
                             <img src={Primordials}/>
+                            <div className="tier-text">Primordials</div>
                         </div>
-                    </Link>
-                    <Link to="primordials" className="tier-link">
-                        <h4>Primordials</h4>
                     </Link>
                 </div>
                 <div className="tier manifestations">
                     <Link to="manifestations" className="tier-link">
                         <div className="tier-image">
                             <img src={Manifestations}/>
+                            <div className="tier-text">Manifestations</div>
                         </div>
-                    </Link>
-                    <Link to="manifestations" className="tier-link">
-                        <h4>Manifestations</h4>
                     </Link>
                 </div>
                 <div className="tier nascents">
                     <Link to="nascents" className="tier-link">
                         <div className="tier-image">
                             <img src={Nascents}/>
+                            <div className="tier-text">Nascents</div>
                         </div>
-                    </Link>
-                    <Link to="nascents" className="tier-link">
-                        <h4>Nascents</h4>
                     </Link>
                 </div>
                 <div className="tier sacred-beasts">
                     <Link to="sacred-beasts" className="tier-link">
                         <div className="tier-image">
                             <img src={SacredBeasts}/>
+                            <div className="tier-text">Sacred Beasts</div>
                         </div>
-                    </Link>
-                    <Link to="sacred-beasts" className="tier-link">
-                        <h4>Sacred Beasts</h4>
                     </Link>
                 </div>
             </div>

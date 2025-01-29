@@ -32,16 +32,11 @@
     justify-content: center;
     align-items: center;
     font-size: 2.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .tier-link {
     margin-top: 1rem;
-}
-
-.tier-link h4 {
-    margin: 0;
-    transition: color 0.5s ease-in-out;
 }
 
 .tier-image {
@@ -49,19 +44,63 @@
     height: 10rem;
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tier-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease-in-out;
-}
-
-.tier-link h4:hover {
-    color: var(--typography-medium);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .tier-image img:hover {
     transform: scale(1.1);
+    opacity: 0.5;
+}
+
+.tier-text {
+    position: absolute;
+    color: var(--typography-light);
+    font-size: 1.75rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    text-shadow: 1px 1px 2px black;
+    pointer-events: none;
+    text-align: center;
+}
+
+.tier-image:hover .tier-text {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .divinity-info > .title {
+        font-size: 1.8rem;
+    }
+
+    .divinity-info > .about {
+        font-size: 1.3rem;
+    }
+
+    .divinity-pantheon > .tier {
+        font-size: 1.75rem;
+        margin-bottom: 0;
+    }
+    
+    .tier-link {
+        width: 90%;
+        display: flex;
+    }
+
+    .tier-image {
+        height: 6rem;
+    }
+
+    .tier-text {
+        font-size: 1.5rem;
+        opacity: 0.8;
+    }
 }

@@ -9,3 +9,14 @@
     margin-bottom: 2rem;
     color: var(--typography-medium)
 }
+
+@media (max-width: 768px) {
+    .category-container > .title {
+        font-size: 1.8rem;
+    }
+
+    .category-container > .about {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+}
