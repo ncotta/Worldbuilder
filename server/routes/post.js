@@ -66,14 +66,6 @@ router.post("/", uploadMiddleware.single("file"), async (req, res) => {
 // Edit post
 router.put("/", uploadMiddleware.single("file"), async (req, res) => {
     let newPath = null;
-    
-    if (req.file) {
-        const { originalname, path } = req.file;
-        const parts = originalname.split('.');
-        const extension = parts[parts.length - 1];
-        newPath = path + "." + extension;
-        fs.renameSync(path, newPath);
-    }
 
     const { token } = req.cookies;
     jwt.verify(token, jwtSecret, {}, async (error, response) => {
@@ -91,6 +83,19 @@ router.put("/", uploadMiddleware.single("file"), async (req, res) => {
             return res.status(400).json("You are not the author!");
         }
 
+        // Handle file update
+        if (req.file) {
+            const { originalname, path: tempPath } = req.file;
+            const extension = originalname.split('.').pop();
+            newPath = `${tempPath}.${extension}`;
+            fs.renameSync(tempPath, newPath);
+
+            if (postDoc.cover) {
+                fs.unlinkSync(postDoc.cover);
+            }
+        }
+
+        // Update post
         await Post.updateOne({
             _id: id
         }, { 
