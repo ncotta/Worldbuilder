@@ -35,7 +35,7 @@ function DivinityTierPage() {
             break;
 
         case 'sacred-beasts':
-            category = 'Divinity Sacred Beasts';
+            category = 'Divinity Sacred-Beasts';
             about = 'Great beasts that approach divinity';
             break;
         
