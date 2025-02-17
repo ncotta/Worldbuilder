@@ -18,7 +18,11 @@ router.post("/", async (req, res) => {
         // logged in
         jwt.sign({ username, id: userDoc._id, role: userDoc.role }, jwtSecret, {}, (error, token) => {
             if (error) throw error;
-            res.cookie("token", token, { sameSite: "Lax"}).json({
+            res.cookie("token", token, { 
+                httpOnly: true,
+                secure: true,
+                sameSite: "None"
+            }).json({
                 id: userDoc._id,
                 username,
                 role: userDoc.role
