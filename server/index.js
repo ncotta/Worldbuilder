@@ -13,7 +13,12 @@ const logoutRoutes = require('./routes/logout');
 const profileRoutes = require('./routes/profile');
 const postRoutes = require('./routes/post');
 
-app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
+app.use(cors({ 
+    credentials: true, 
+    origin: process.env.CLIENT_URL ,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
