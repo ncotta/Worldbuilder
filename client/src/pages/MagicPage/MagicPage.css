@@ -6,14 +6,17 @@
 
 .magic-info > .title,
 .magic-info > .about {
-    text-align: center;
-    margin-bottom: 0.5rem;
     margin-top: 0;
+    text-align: center;
+}
+
+.magic-info > .title {
+    margin-bottom: 0.5rem;
 }
 
 .magic-info > .about {
-    margin-bottom: 2rem;
     color: var(--typography-medium);
+    margin-bottom: 1rem;
 }
 
 .magic-square {

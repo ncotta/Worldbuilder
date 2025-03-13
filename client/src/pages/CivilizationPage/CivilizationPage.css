@@ -1,0 +1,20 @@
+.civilization-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.civilization-info > .title,
+.civilization-info > .about {
+    margin-top: 0;
+    text-align: center;
+}
+
+.civilization-info > .title {
+    margin-bottom: 0.5rem;
+}
+
+.civilization-info > .about {
+    color: var(--typography-medium);
+    margin-bottom: 1rem;
+}

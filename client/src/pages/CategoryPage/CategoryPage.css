@@ -1,13 +1,22 @@
+.category-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .category-container > .title,
 .category-container > .about {
-    text-align: center;
     margin-top: 0;
+    text-align: center;
+}
+
+.category-container > .title {
     margin-bottom: 0.5rem;
 }
 
 .category-container > .about {
-    margin-bottom: 2rem;
-    color: var(--typography-medium)
+    color: var(--typography-medium);
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {

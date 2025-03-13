@@ -1,6 +1,5 @@
 import './App.css';
 import AppLayout from './components/AppLayout/AppLayout';
-
 import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
@@ -12,6 +11,7 @@ import MagicPage from './pages/MagicPage/MagicPage';
 import MagicElementPage from './pages/MagicElementPage/MagicElementPage';
 import DivinityPage from './pages/DivinityPage/DivinityPage';
 import DivinityTierPage from './pages/DivinityTierPage/DivinityTierPage';
+import CivilizationPage from './pages/CivilizationPage/CivilizationPage';
 import { UserContextProvider } from './contexts/UserContext';
 import { Route, Routes } from 'react-router-dom';
 
@@ -31,14 +31,7 @@ function App() {
 					<Route path="/post/:id" element={<PostPage />} />
 					<Route 
 						path="/civilizations" 
-						element={
-							// <CivilizationMap/>
-							<CategoryPage 
-								category="Civilization" 
-								title="Civilizations" 
-								about="A country for each celestial body, save for the magnificent Sun, who rules over three" 
-							/>
-						} 
+						element={ <CivilizationPage/> } 
 					/>
 					<Route 
 						path="/magic" 
