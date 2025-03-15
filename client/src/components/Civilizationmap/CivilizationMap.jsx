@@ -2,7 +2,7 @@ import { MapContainer, ImageOverlay, Marker } from "react-leaflet";
 import { useNavigate } from "react-router-dom";
 import L from "leaflet"; // Import Leaflet
 import "leaflet/dist/leaflet.css";
-import WorldPng from "../../assets/world.jpg";
+import WorldPng from "../../assets/newworld.jpg";
 import EmptyPng from "../../assets/empty.png";
 
 function CivilizationMap() {
