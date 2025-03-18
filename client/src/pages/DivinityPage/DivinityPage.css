@@ -25,7 +25,7 @@
     justify-content: center;
 }
 
-.divinity-pantheon > .tier {
+.divinity-pantheon .tier {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,11 +34,11 @@
     margin-bottom: 1.5rem;
 }
 
-.tier-link {
+.divinity-pantheon .tier-link {
     margin-top: 1rem;
 }
 
-.tier-image {
+.divinity-pantheon .tier-image {
     width: 50rem;
     height: 10rem;
     overflow: hidden;
@@ -48,19 +48,19 @@
     align-items: center;
 }
 
-.tier-image img {
+.divinity-pantheon .tier-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.tier-image img:hover {
+.divinity-pantheon .tier-image img:hover {
     transform: scale(1.1);
     opacity: 0.5;
 }
 
-.tier-text {
+.divinity-pantheon .tier-text {
     position: absolute;
     color: var(--typography-light);
     font-size: 1.75rem;
@@ -71,7 +71,7 @@
     text-align: center;
 }
 
-.tier-image:hover .tier-text {
+.divinity-pantheon .tier-image:hover .tier-text {
     opacity: 1;
 }
 
@@ -84,21 +84,21 @@
         font-size: 1.3rem;
     }
 
-    .divinity-pantheon > .tier {
+    .divinity-pantheon .tier {
         font-size: 1.75rem;
         margin-bottom: 0;
     }
     
-    .tier-link {
+    .divinity-pantheon .tier-link {
         width: 90%;
         display: flex;
     }
 
-    .tier-image {
+    .divinity-pantheon .tier-image {
         height: 6rem;
     }
 
-    .tier-text {
+    .divinity-pantheon .tier-text {
         font-size: 1.5rem;
         opacity: 0.8;
     }

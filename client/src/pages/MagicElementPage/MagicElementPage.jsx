@@ -4,76 +4,58 @@ import Post from '../../components/Post/Post';
 import Loading from '../../components/Loading/Loading';
 import './MagicElementPage.css';
 
+const elementData = [
+    { id: "kindling-sun", name: "Kindling Sun", about: "Worshipped by the Kuratii. The Morning Sun is gentle and new.", elements: "The Hearth, Warmth, Healing, Plants, Life." },
+    { id: "blazing-sun", name: "Blazing Sun", about: "Worshipped by the Mashruti. The Noon Sun is a terrible heat and blinding light.", elements: "The Forge, Fire, Light, Vitality." },
+    { id: "smoldering-sun", name: "Smoldering Sun", about: "Worshipped by the Jondans. The Evening Sun is a fatigued sun, barely dim.", elements: "Smoke, Ash, Embers, Charcoal, Death." },
+    { id: "salt-moon", name: "Salt Moon", about: "Worshipped by the desert people of Mujdahr. The Salt Moon is a two-faced moon.", elements: "Saltwater, Salted Sands, Preservation, Corrosion" },
+    { id: "clay-moon", name: "Clay Moon", about: "Worshipped by the Dukwanese. The Clay Moon is the largest of the Moons.", elements: "Clay, Mud, Earth, Substance, Fertility." },
+    { id: "cerulean-moon", name: "Cerulean Moon", about: "Worshipped by the water-loving Yaekish. The Cerulean Moon is a vain moon.", elements: "Monsoon Rains, Freshwater, Flow." },
+    { id: "obsidian-moon", name: "Obsidian Moon", about: "Worshipped by the Hifians. The Obsidian Moon is the most furtive of the Moons.", elements: "Stone, Chitin, Silk, Barriers." }
+    // { id: "silver-comet", name: "Silver Comet", about: "A rare celestial event. The Silver Comet is a harbinger of change.", elements: "Silver, Transformations" },
+    // { id: "jade-quasar", name: "Jade Quasar", about: "", elements: "" }
+];
+
 function MagicElementPage() {
-	const { element } = useParams();
-	
-	const [posts, setPosts] = useState([]);
+    const { element } = useParams();
+    const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    let category, about, about2;
-
-    switch (element) {
-        case 'fire':
-            category = 'Fire Magic';
-            about = 'Under the domain of the Sun. Fire is passion and power.';
-            about2 = 'Heat, Sight, Power, Passion, Sealing.';
-            break;
-        case 'air':
-            category = 'Air Magic';
-            about = 'Under the domain of the Sun. Air is freedom and movement.';
-            about2 = 'Wind, Breath, Sound, Freedom.';
-            break;
-        case 'water':
-            category = 'Water Magic';
-            about = 'Under the domain of the Moons. To be like water is to be adaptable, to fill the shape of the vessel desired.';
-            about2 = 'Flow, Change, Blood.';
-            break;
-        case 'earth':
-            category = 'Earth Magic';
-            about = 'Under the domain of the Moons. Earth is solid and diverse.';
-            about2 = 'Substance, Flesh, Stamina.';
-            break;
-        default:
-            category = 'Magic';
-            about = 'The magic of this world is divided into four elements, each with its own unique properties.';
-            about2 = 'Fire, Air, Water, Earth.';
-    }
+    const selectedElement = elementData.find(e => e.id === element) || {
+        name: 'Magic',
+        about: 'Magic placeholder text.',
+        elements: 'Magic placeholder text.'
+    };
 
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
-            const limitParam = 1000; // Fetch all posts
-
             try {
-                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post?limit=${limitParam}`);
+                const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post?limit=1000`);
                 const posts = await response.json();
                 setPosts(posts);
             } catch (error) {
                 console.error('Error fetching posts:', error);
             } finally {
-                setLoading(false); // Stop loading after fetching
+                setLoading(false);
             }
         };
-
         fetchPosts();
     }, []);
     
-	return (
-		<div className="magic-element-container">
-            <h2 className="title">{element.charAt(0).toUpperCase() + element.slice(1)}</h2>
-            <p className="about">{about}</p>
-            <p className="about2">{about2}</p>
-            {loading && (
-                <Loading/>
-            )}
+    return (
+        <div className="magic-element-container">
+            <h2 className="title">{selectedElement.name}</h2>
+            <p className="about">{selectedElement.about}</p>
+            <p className="about2">{selectedElement.elements}</p>
+            {loading && <Loading />}
             <div className="posts">
-                {posts.length > 0 && posts
-                    .filter(post => post.category === category)
-                    .map(post => <Post key={post.id} {...post}/>)
-                }
+                {posts.filter(post => post.category === selectedElement.name).map(post => (
+                    <Post key={post.id} {...post} />
+                ))}
             </div>
-		</div>
-	)
+        </div>
+    );
 }
 
 export default MagicElementPage;

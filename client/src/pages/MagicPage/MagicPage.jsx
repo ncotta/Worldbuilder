@@ -1,9 +1,26 @@
-import WaterMagic from '../../assets/magic/water.png';
-import FireMagic from '../../assets/magic/fire.png';
-import EarthMagic from '../../assets/magic/earth.png';
-import WindMagic from '../../assets/magic/wind.png';
+import KindlingSun from '../../assets/magic/kindling-sun.png';
+import BlazingSun from '../../assets/magic/blazing-sun.png';
+import SmolderingSun from '../../assets/magic/smoldering-sun.png';
+import SaltMoon from '../../assets/magic/salt-moon.png';
+import ClayMoon from '../../assets/magic/clay-moon.png';
+import CeruleanMoon from '../../assets/magic/cerulean-moon.png';
+import ObsidianMoon from '../../assets/magic/obsidian-moon.png';
+import SilverComet from '../../assets/magic/silver-comet.png';
+import JadeQuasar from '../../assets/magic/jade-quasar.png';
 import { Link } from 'react-router-dom';
 import './MagicPage.css';
+
+const celestialBodies = [
+    { id: "kindling-sun", name: "Kindling Sun", image: KindlingSun },
+    { id: "blazing-sun", name: "Blazing Sun", image: BlazingSun },
+    { id: "smoldering-sun", name: "Smoldering Sun", image: SmolderingSun },
+    { id: "salt-moon", name: "Salt Moon", image: SaltMoon },
+    { id: "clay-moon", name: "Clay Moon", image: ClayMoon },
+    { id: "cerulean-moon", name: "Cerulean Moon", image: CeruleanMoon },
+    { id: "obsidian-moon", name: "Obsidian Moon", image: ObsidianMoon }
+    // { id: "silver-comet", name: "Silver Comet", image: SilverComet },
+    // { id: "jade-quasar", name: "Jade Quasar", image: JadeQuasar }
+]
 
 function MagicPage() {
 	return (
@@ -12,31 +29,17 @@ function MagicPage() {
                 <h2 className="title">Magic</h2>
                 <p className="about">The energy that flows through the veins of the universe, derived from the celestial bodies</p>
             </div>
-            <div className="magic-square">
-                <div className="quarter top-left">
-                    <Link to="fire" className="magic-link">
-                        <img src={FireMagic}/> 
-                        <div className="magic-text">Fire</div>
-                    </Link>
-                </div>
-                <div className="quarter top-right">
-                    <Link to="water" className="magic-link">
-                        <img src={WaterMagic}/>
-                        <div className="magic-text">Water</div>
-                    </Link>
-                </div>
-                <div className="quarter bottom-left">
-                    <Link to="wind" className="magic-link">
-                        <img src={WindMagic}/>
-                        <div className="magic-text">Wind</div>
-                    </Link>
-                </div>
-                <div className="quarter bottom-right">
-                    <Link to="earth" className="magic-link">
-                        <img src={EarthMagic}/>
-                        <div className="magic-text">Earth</div>
-                    </Link>
-                </div>
+            <div className="magic-row">
+                {celestialBodies.map(celestialBody => (
+                    <div className="tier" key={celestialBody.id}>
+                        <Link to={celestialBody.id} className="magic-link">
+                            <div className="tier-image">
+                                <img src={celestialBody.image}/>
+                                <div className="tier-text">{celestialBody.name}</div>
+                            </div>
+                        </Link>
+                    </div>
+                ))}
             </div>
         </div>
 	)
