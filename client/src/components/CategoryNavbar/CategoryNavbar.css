@@ -1,6 +1,6 @@
 .category-navbar {
     width: 100%;
-    padding: 3rem 0;
+    padding: 1.25rem 0 1.25rem 0;
 }
 
 .category-navbar nav {
@@ -14,7 +14,7 @@
     padding: 0.5rem;
     border-radius: 5px;
     color: var(--typography-medium);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .category-navbar a::after {
