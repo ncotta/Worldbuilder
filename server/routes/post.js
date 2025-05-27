@@ -91,7 +91,13 @@ router.put("/", uploadMiddleware.single("file"), async (req, res) => {
             fs.renameSync(tempPath, newPath);
 
             if (postDoc.cover) {
-                fs.unlinkSync(postDoc.cover);
+                try {
+                    fs.unlinkSync(postDoc.cover);
+                }
+                catch (err) {
+                    // Do not unlink if it does not exist
+                    console.error("Error deleting old cover file:", err);
+                }
             }
         }
 
