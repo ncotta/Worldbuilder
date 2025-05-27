@@ -1,5 +1,5 @@
-# Worldbuilder
-A new way to experience a fantasy setting
+# Stagnance
+Visual story-telling
 ## MERN (MongoDB, Express, React, Node.js) stack
 
 TODO:

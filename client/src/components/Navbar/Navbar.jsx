@@ -32,7 +32,7 @@ function Navbar() {
 	return (
 		<header>
             <div className="navbar">
-                <Link to="/" className="logo">Worldbuilder</Link>
+                <Link to="/" className="logo">Stagnance</Link>
                 <nav>
                     {username && role === 0 && (
                         <>
