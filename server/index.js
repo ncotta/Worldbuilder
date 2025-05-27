@@ -26,12 +26,12 @@ app.use("/logout", logoutRoutes); // Logout
 app.use("/profile", profileRoutes);  // Profile for jwt token validity
 app.use("/post", postRoutes);  //  Posts
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+if (process.env.NODE_ENV !== 'production') {
+    app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
-// Catchall for unmatched routes
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
+    });
+}
 
 app.listen(process.env.PORT || 4000);
