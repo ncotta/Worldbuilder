@@ -16,6 +16,7 @@ function HomePage() {
             const limitParam = viewAll ? 1000 : 5;
 
             try {
+                console.log('ENV:', import.meta.env.VITE_SERVER_URL);
                 const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/post?limit=${limitParam}`);
                 const posts = await response.json();
                 setPosts(posts);
