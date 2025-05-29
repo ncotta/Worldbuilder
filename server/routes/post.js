@@ -134,8 +134,14 @@ router.delete("/:id", async (req, res) => {
         }
 
         if (postDoc.cover) {
-            fs.unlinkSync(postDoc.cover);
-        }
+                try {
+                    fs.unlinkSync(postDoc.cover);
+                }
+                catch (err) {
+                    // Do not unlink if it does not exist
+                    console.error("Error deleting old cover file:", err);
+                }
+            }
 
         await Post.deleteOne({ _id: id });
         
