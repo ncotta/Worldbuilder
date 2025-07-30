@@ -50,7 +50,7 @@ function App() {
 						element={ <DivinityTierPage /> }
 					/>
 					<Route 
-						path="/characters" 
+						path="/people" 
 						element={
 							<CategoryPage 
 								category="People" 
@@ -58,6 +58,16 @@ function App() {
 								about="Important characters around which the story revolves"
 							/>
 						} 
+					/>
+					<Route
+						path="/stories"
+						element={
+							<CategoryPage 
+								category="Stories" 
+								title="Stories"
+								about="Short stories and longer ones"
+							/>
+						}
 					/>
 				</Route>
 			</Routes>

@@ -48,8 +48,9 @@ function CreatePostPage() {
                     <option value="" disabled hidden>Category</option>
                     <option value="Civilization">Civilization</option>
                     <option value="Magic">Magic</option>
-                    <option value="Divinity">Divinity</option>
+                    <option value="Divinity">Jinn</option>
                     <option value="People">People</option>
+                    <option value="Stories">Stories</option>
                 </select>
 
                 {category === "Magic" && (
