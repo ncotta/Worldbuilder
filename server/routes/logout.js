@@ -1,3 +1,8 @@
+/**
+ * Logout route for user authentication
+ * Clears the JWT token cookie to log the user out
+ */
+
 const express = require('express');
 const router = express.Router();
 

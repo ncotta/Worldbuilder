@@ -11,7 +11,7 @@ const User = require('../models/User');
 const Post = require('../models/Post');
 
 
-// Get post(s)
+// GET posts
 router.get("/", async (req, res) => {
     const limit = req.query.limit ? parseInt(req.query.limit) : 10;
 
@@ -23,6 +23,7 @@ router.get("/", async (req, res) => {
     res.json(postDoc);
 })
 
+// GET a post
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
     const postDoc = await Post.findById(id)
@@ -31,7 +32,7 @@ router.get("/:id", async (req, res) => {
     res.json(postDoc);
 })
 
-// Create post
+// POST a post
 router.post("/", uploadMiddleware.single("file"), async (req, res) => {
     const { originalname, path } = req.file;
     const parts = originalname.split('.');
@@ -63,7 +64,7 @@ router.post("/", uploadMiddleware.single("file"), async (req, res) => {
 });
 
 
-// Edit post
+// PUT a post
 router.put("/", uploadMiddleware.single("file"), async (req, res) => {
     let newPath = null;
 
@@ -115,7 +116,7 @@ router.put("/", uploadMiddleware.single("file"), async (req, res) => {
     });
 })
 
-// Delete post
+// DELETE a post
 router.delete("/:id", async (req, res) => {
     const { token } = req.cookies;
     jwt.verify(token, jwtSecret, {}, async (error, response) => {

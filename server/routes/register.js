@@ -1,11 +1,15 @@
+/**
+ * Registration route for user authentication
+ * Creates a new user in the database with the provided username and password
+ * The password is hashed using bcrypt before being stored in the database
+ * The role is set to 1 for regular users by default
+ */
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-
-const User = require('../models/User');
-
 const salt = bcrypt.genSaltSync(10);
-
+const User = require('../models/User');
 
 router.post("/", async (req, res) => {
     const { username, password } = req.body;
