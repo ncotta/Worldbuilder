@@ -12,6 +12,8 @@ import MagicElementPage from './pages/MagicElementPage/MagicElementPage';
 import DivinityPage from './pages/DivinityPage/DivinityPage';
 import DivinityTierPage from './pages/DivinityTierPage/DivinityTierPage';
 import CivilizationPage from './pages/CivilizationPage/CivilizationPage';
+import AnthologyPage from './pages/AnthologyPage/AnthologyPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { UserContextProvider } from './contexts/UserContext';
 import { Route, Routes } from 'react-router-dom';
 
@@ -60,14 +62,12 @@ function App() {
 						} 
 					/>
 					<Route
-						path="/stories"
-						element={
-							<CategoryPage 
-								category="Stories" 
-								title="Stories"
-								about="Short stories and longer ones"
-							/>
-						}
+						path="/stories/post/:id" 
+						element={ <AnthologyPage /> }
+					/>
+					<Route 
+						path="*" 
+						element={ <NotFoundPage /> } 
 					/>
 				</Route>
 			</Routes>

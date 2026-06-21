@@ -26,6 +26,10 @@ app.use("/logout", logoutRoutes); // Logout
 app.use("/profile", profileRoutes);  // Profile for jwt token validity
 app.use("/post", postRoutes);  //  Posts
 
+app.use((req, res) => {
+    res.status(404).json({ error: "Route not found" });
+});
+
 if (process.env.NODE_ENV !== 'production') {
     app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
