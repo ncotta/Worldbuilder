@@ -15,7 +15,7 @@ import CivilizationPage from './pages/CivilizationPage/CivilizationPage';
 import AnthologyPage from './pages/AnthologyPage/AnthologyPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { UserContextProvider } from './contexts/UserContext';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 
 function App() {
@@ -60,6 +60,10 @@ function App() {
 								about="Important characters around which the story revolves"
 							/>
 						} 
+					/>
+					<Route
+						path="/stories"
+						element={<Navigate to="/stories/post/6838d468abfa3a97ebbd9864" replace />}
 					/>
 					<Route
 						path="/stories/post/:id" 

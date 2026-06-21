@@ -13,7 +13,7 @@ function CategoryNavbar() {
                 <Link to="/jinn" className="category">Jinn</Link>
                 {/* <Link to="/factions" className="category">Factions</Link> */}
                 <Link to="/people" className="category">People</Link>
-                <Link to="/stories/post/6838d468abfa3a97ebbd9864" className="category">Stories</Link>
+                <Link to="/stories" className="category">Stories</Link>
             </nav>
 		</div>
 	)
