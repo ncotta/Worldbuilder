@@ -63,7 +63,7 @@ function App() {
 					/>
 					<Route
 						path="/stories"
-						element={<Navigate to="/stories/post/6838d468abfa3a97ebbd9864" replace />}
+						element={<Navigate to="/stories/post/69f412d3eabdf4ccd27dc7fa" replace />}
 					/>
 					<Route
 						path="/stories/post/:id" 

@@ -9,10 +9,12 @@ function AnthologyPage(){
     const navigate = useNavigate();
 
     const postIds = [ 
-        "6838d468abfa3a97ebbd9864", 
-        "6866fd609ea96b813926b2b2", 
-        "69f412d3eabdf4ccd27dc7fa", 
-        "6a06bf7568773083a44bc4c9" 
+        "69f412d3eabdf4ccd27dc7fa", // 1 Interlude: Ghayata Wakes
+        "6838d468abfa3a97ebbd9864", // 2 Birth
+        "6866fd609ea96b813926b2b2", // 3 Resurrection
+        "6a375953049fe48fb1f1c346", // 4 Interlude: Remebrance
+        "6a06bf7568773083a44bc4c9", // 5 The Hotel
+        "6a3768c798f5620252e3f3f2"  // 6 Interlude: Meditation
     ]
 
     const [redirect, setRedirect] = useState(false);
