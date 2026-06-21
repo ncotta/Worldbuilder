@@ -1,0 +1,153 @@
+.anthology-page {
+    width: 100%;
+}
+
+.anthology-page .image {
+    display: flex;
+    overflow: hidden;
+    min-height: 13rem;
+    position: relative;
+    z-index: -2;
+    justify-content: center;
+    align-items: center;
+}
+
+.anthology-page .image img {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.anthology-page .image .overlay-box {
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    padding: 0.75rem;
+    letter-spacing: 0.1rem;
+    display: inline-block;
+}
+
+.anthology-page .image h1 {
+    margin: 0;
+    color: var(--typography-medium);
+    text-align: center;
+}
+
+.anthology-page .info {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    font-size: 1.2rem;
+    color: var(--typography-medium);
+    margin: 0.5rem 0;
+}
+
+.anthology-page .glimpse {
+    line-height: 1.9rem;
+    color: var(--typography-high);
+    margin-top: 3rem;
+    font-size: 1.3rem;
+}
+
+.anthology-page .glimpse p {
+    margin: 0;
+}
+
+.anthology-page .post-options {
+    display: flex;
+    justify-content: center;
+    gap: 15rem;
+    margin-bottom: 1.5rem;
+}
+
+.anthology-page .options-button {
+    background-color: var(--elevation-200);
+    color: var(--typography-high);
+    padding: 0.9rem 1.4rem;
+    border-radius: 30px;
+    transition: all 0.2s ease-in-out;
+}
+
+.anthology-page .options-button:hover {
+    background-color: var(--elevation-300);
+}
+
+.navigation {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    pointer-events: none; /* allows clicks through container */
+}
+
+.navigation button {
+    font-size: 2rem;
+    position: absolute;
+    pointer-events: auto; /* re-enable clicks */
+    background-color: rgba(40, 40, 40, 0.8);
+    color: var(--typography-high);
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.navigation button:hover {
+    background-color: var(--elevation-300);
+}
+
+.navigation button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.navigation button:first-child {
+    left: 1rem;
+}
+
+.navigation button:last-child {
+    right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .anthology-page {
+        text-align: center;
+    }
+
+    .anthology-page .image {
+        min-height: 6rem;
+    }
+
+    .anthology-page .title {
+        font-size: 2rem;
+    }
+
+    .anthology-page .glimpse {
+        font-size: 0.9rem;
+        line-height: 1.6rem;
+        margin-top: 0;
+    }
+
+    .anthology-page .info {
+        font-size: 0.8rem;
+    }
+
+    .anthology-page .post-options {
+        gap: 2rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .anthology-page .options-button {
+        padding: 0.5rem 0.7rem;
+    }
+
+    .anthology-page .image .overlay-box {
+        padding: 0.4rem 0.5rem;
+    }
+
+    .anthology-page .image h1 {
+        font-size: 1.4rem;
+    }
+}

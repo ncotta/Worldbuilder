@@ -12,7 +12,7 @@
 }
 
 .magic-info > .title {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .magic-info > .about {
@@ -20,27 +20,39 @@
     margin-bottom: 1rem;
 }
 
-.magic-row {
+.major-magic-row {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     justify-content: center;
     width: 100%;
+    margin-bottom: 7rem;
 }
 
-.magic-row .tier {
+.minor-magic-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    width: 85%;
+    margin-bottom: 3rem;
+}
+
+.major-magic-row .tier,
+.minor-magic-row .tier {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.magic-row .magic-link {
+.major-magic-row .magic-link,
+.minor-magic-row .magic-link {
     display: flex;
     justify-content: center;
     max-width: 10rem;
 }
 
-.magic-row .tier-image {
+.major-magic-row .tier-image,
+.minor-magic-row .tier-image {
     min-width: 8rem;
     min-height: 50rem;
     overflow: hidden;
@@ -52,19 +64,22 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.magic-row .tier-image img {
+.major-magic-row .tier-image img,
+.minor-magic-row .tier-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.magic-row .tier-image:hover img {
+.major-magic-row .tier-image:hover img,
+.minor-magic-row .tier-image:hover img {
     transform: scale(1.1);
     opacity: 0.5;
 }
 
-.magic-row .tier-text {
+.major-magic-row .tier-text,
+.minor-magic-row .tier-text {
     position: absolute;
     color: var(--typography-light);
     font-size: 1.5rem;
@@ -74,7 +89,8 @@
     pointer-events: none;
 }
 
-.magic-row .tier-image:hover .tier-text {
+.major-magic-row .tier-image:hover .tier-text,
+.minor-magic-row .tier-image:hover .tier-text {
     opacity: 1;
 }
 
