@@ -34,11 +34,15 @@ router.get("/:id", async (req, res) => {
 
 // POST a post
 router.post("/", uploadMiddleware.single("file"), async (req, res) => {
-    const { originalname, path } = req.file;
-    const parts = originalname.split('.');
-    const extension = parts[parts.length - 1];
-    const newPath = path + "." + extension;
-    fs.renameSync(path, newPath);
+    let newPath = null;
+
+    if (req.file) {
+        const { originalname, path } = req.file;
+        const parts = originalname.split('.');
+        const extension = parts[parts.length - 1];
+        newPath = path + "." + extension;
+        fs.renameSync(path, newPath);
+    }
 
     const { token } = req.cookies;
     jwt.verify(token, jwtSecret, {}, async (error, response) => {
